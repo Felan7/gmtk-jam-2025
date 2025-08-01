@@ -30,5 +30,10 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisonArea2D" index="0"]
 shape = SubResource("CircleShape2D_ju45m")
 
+[node name="Timer" type="Timer" parent="." index="3"]
+wait_time = 5.0
+autostart = true
+
 [connection signal="body_entered" from="VisonArea2D" to="." method="_on_vison_area_2d_body_entered"]
 [connection signal="body_exited" from="VisonArea2D" to="." method="_on_vison_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

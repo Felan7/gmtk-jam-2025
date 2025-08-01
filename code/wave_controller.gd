@@ -17,11 +17,13 @@ const wave_array = [
 
 func _ready() -> void:
 	# load first round
+	Global.connect("score_changed", _on_score_changed)
 	load_wave()
 
 
-func _on_score_changed(new_score) -> void:
-	if new_score >= score_target:
+func _on_score_changed() -> void:
+	print("Score has changed. Is now: " + str(Global.score))
+	if Global.score >= score_target:
 		current_wave_index += 1
 		# award wave completion bonus
 		Global.score += current_wave["bonus"]
