@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://3f8lehicrp8t"]
+
+[ext_resource type="Texture2D" uid="uid://dt1bayxttfayh" path="res://assets/art/placeholder_16x16.png" id="1_j58np"]
+[ext_resource type="PackedScene" uid="uid://bv8tr2mr3lkqi" path="res://scenes/enemies/snail.tscn" id="2_qst1g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6iaxk"]
+size = Vector2(16, 16)
+
+[node name="FelixTestRoom" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
+position = Vector2(204, 109)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_6iaxk")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = ExtResource("1_j58np")
+
+[node name="Snail" parent="." instance=ExtResource("2_qst1g")]
+position = Vector2(110, 117)

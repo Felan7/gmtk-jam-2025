@@ -18,6 +18,13 @@ config/icon="res://assets/art/icon.svg"
 
 Global="*res://code/global.gd"
 
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=240
+window/stretch/mode="canvas_items"
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
