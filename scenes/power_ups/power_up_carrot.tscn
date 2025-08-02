@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg1w7tfeanm3h"]
+
+[ext_resource type="PackedScene" uid="uid://by64liugxphtv" path="res://scenes/power_ups/power_up.tscn" id="1_yh128"]
+[ext_resource type="Texture2D" uid="uid://cb1jvljrku4hn" path="res://assets/art/CarrotSpritesheet.png" id="2_gvv3n"]
+
+[node name="PowerUp_Carrot" instance=ExtResource("1_yh128")]
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_gvv3n")

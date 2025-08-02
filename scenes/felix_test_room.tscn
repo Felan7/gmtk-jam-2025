@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://3f8lehicrp8t"]
+[gd_scene load_steps=7 format=3 uid="uid://3f8lehicrp8t"]
 
 [ext_resource type="Texture2D" uid="uid://dt1bayxttfayh" path="res://assets/art/placeholder_16x16.png" id="1_j58np"]
 [ext_resource type="PackedScene" uid="uid://bv8tr2mr3lkqi" path="res://scenes/enemies/snail.tscn" id="2_qst1g"]
 [ext_resource type="PackedScene" uid="uid://bvbkb8ydj0qph" path="res://scenes/enemies/wave_controller.tscn" id="3_qst1g"]
 [ext_resource type="PackedScene" uid="uid://ddcbfvxjqyycb" path="res://scenes/menu/user_interface.tscn" id="4_6iaxk"]
+[ext_resource type="PackedScene" uid="uid://cg1w7tfeanm3h" path="res://scenes/power_ups/power_up_carrot.tscn" id="5_4oxa0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6iaxk"]
 size = Vector2(16, 16)
@@ -27,3 +28,6 @@ position = Vector2(110, 117)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UserInterface" parent="CanvasLayer" instance=ExtResource("4_6iaxk")]
+
+[node name="PowerUp_Carrot" parent="." instance=ExtResource("5_4oxa0")]
+position = Vector2(252, 81)

@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://by64liugxphtv"]
+
+[ext_resource type="Script" uid="uid://by2wbgqdj2j23" path="res://code/power_up.gd" id="1_b4jkr"]
+[ext_resource type="Texture2D" uid="uid://dt1bayxttfayh" path="res://assets/art/placeholder_16x16.png" id="2_sbss5"]
+
+[sub_resource type="Animation" id="Animation_sbss5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_b4jkr"]
+resource_name = "idle"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2.03333, 3, 4.03333, 4.9858, 6.06181, 7.05408, 8.01428, 9.04332),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0), Vector2(0, -2), Vector2(0, 0), Vector2(0, -2), Vector2(0, 0), Vector2(0, -2), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eppwn"]
+_data = {
+&"RESET": SubResource("Animation_sbss5"),
+&"idle": SubResource("Animation_b4jkr")
+}
+
+[node name="PowerUp" type="Node2D"]
+script = ExtResource("1_b4jkr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_eppwn")
+}
+autoplay = "idle"
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["PowerUps"]]
+texture = ExtResource("2_sbss5")

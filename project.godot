@@ -27,6 +27,9 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 LineDrawer="object that draws the lines"
+PowerUps=""
+Enemies=""
+Player=""
 
 [input]
 
