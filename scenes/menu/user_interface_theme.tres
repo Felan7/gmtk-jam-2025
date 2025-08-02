@@ -1,6 +1,17 @@
-[gd_resource type="Theme" load_steps=4 format=3 uid="uid://4fkci148rrkp"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://4fkci148rrkp"]
 
 [ext_resource type="FontFile" uid="uid://dpntb4eu3klq" path="res://assets/fonts/minimal5x7.ttf" id="1_7faip"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7faip"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.266575, 0.266575, 0.266575, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbsfc"]
 border_width_left = 1
@@ -19,6 +30,7 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 
 [resource]
 default_font = ExtResource("1_7faip")
+Button/styles/normal = SubResource("StyleBoxFlat_7faip")
 MarginContainer/constants/margin_bottom = 2
 MarginContainer/constants/margin_left = 2
 MarginContainer/constants/margin_right = 2

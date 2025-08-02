@@ -11,7 +11,18 @@ const wave_array = [
 	{"enemies" : [
 		{"type" :"potted_plant", "count" : 10},
 		{"type" :"snail", "count" : 10},
-		{"type" :"squirrel", "count" : 100}],
+		{"type" :"squirrel", "count" : 10}],
+	"bonus" : 25,
+	"score_target" : 100},
+	{"enemies" : [
+		{"type" :"squirrel", "count" : 10},
+		{"type" :"squirrel", "count" : 10},
+		{"type" :"squirrel", "count" : 10}],
+	"bonus" : 25,
+	"score_target" : 100},
+	{"enemies" : [
+		{"type" :"cat", "count" : 30},
+		],
 	"bonus" : 25,
 	"score_target" : 100}
 ]

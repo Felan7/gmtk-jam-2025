@@ -29,34 +29,34 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if mouse_control:
 		position = get_global_mouse_position()
-	
+
 	movement_handler(delta)
 	visual_handler()
 	queue_redraw()
-	
-		
+
+
 func movement_handler(delta): # Handles movement
 	var input_velocity : Vector2 = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down"))
-	print(input_velocity)
+	#print(input_velocity)
 	if input_velocity.length() > 0:
 		velocity = lerp(velocity, input_velocity.normalized() * SPEED * delta, 0.1)
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, 0.1)
 	move_and_collide(velocity)
-	
+
 	player_perceived_speed = (prev_player_pos - global_position).length()
 	$Label.text = str("SPEED: ", snappedf(player_perceived_speed, 0.1))
 	prev_player_pos = global_position
-	
+
 	if Input.is_action_pressed("input_draw_line"):
 		if not isDrawing:
 			get_tree().get_first_node_in_group("LineDrawer")._clear_lines()
 		isDrawing = true
-		
+
 	if Input.is_action_just_released("input_draw_line"):
 		isDrawing = false
 		#AudioMaster.play_audio("8bit_bossa")
-	
+
 	## Maybe make making dots happen on process and drawing/update speed depends on character speed? (faster movement, more frequent updates?)
 
 func _process(delta: float) -> void:
@@ -77,7 +77,7 @@ func _draw() -> void: # Debug circles
 		draw_circle(dot - global_position, 4, Color.RED, false)
 """
 func visual_handler(): # Handles visual effects and animations
-	
+
 	pass
 
 func _destroy(): # Character dies, might trigger special behaviour
