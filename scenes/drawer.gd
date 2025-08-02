@@ -7,13 +7,6 @@ var length : float = 0
 var max_line_length = 520
 var holes : Dictionary  = {}
 
-var line1 = Vector2(201, 100)
-var line2 = Vector2(201, 400)
-var line3 = Vector2(200, 100)
-var line4 = Vector2(200, 400)
-
-func _ready() -> void:
-	print(are_lines_intersecting(line1, line2, line3, line4))
 
 func _physics_process(_delta: float) -> void:
 	$Label.text = str("Line length: ", snappedf(length, 0.1))
@@ -26,7 +19,6 @@ func _physics_process(_delta: float) -> void:
 	#print(length)#drawing_line_array.size())
 	if previous_size != drawing_line_array.size():
 		calculate_intersections()
-		pass
 	previous_size = drawing_line_array.size()
 
 func _clear_lines():
@@ -45,9 +37,6 @@ func _draw() -> void:
 		for data_pos in range(hole_candinate.size() - 1):
 			draw_line(hole_candinate[data_pos], hole_candinate[data_pos + 1], Color.PURPLE, 6)
 		draw_line(hole_candinate[0], hole_candinate[hole_candinate.size() - 1], Color.PURPLE, 6)
-	
-	draw_line(line1, line2, Color.YELLOW, 10)
-	draw_line(line3, line4, Color.BROWN, 10)
 	
 func calculate_length():
 	length = 0
@@ -74,7 +63,7 @@ func calculate_intersections(): # Calculates if last drawn line intersects with 
 		var p1 = positions[i] 
 		var p2 = positions[i + 1] # Point pair A
 		
-		for j in range(i, positions.size() - 1):
+		for j in range(positions.size() - 2, positions.size() - 1):
 			# pair B
 			var p3 = positions[j]
 			var p4 = positions[j + 1] # Point pair B
@@ -89,14 +78,18 @@ func calculate_intersections(): # Calculates if last drawn line intersects with 
 			break
 	
 	if isIntersecting: 
-		var new_hole : Array
-		for linePoints in range(circle_start_pos, circle_end_pos):
-			new_hole.append(drawing_line_array[linePoints])
-		randomize()
-		holes[randi()] = new_hole
+		var temp_hole : Array[Vector2]
+		# Gets the first point where lines intersect and adds it to the array
+		temp_hole.append(
+			Geometry2D.get_closest_point_to_segment(
+				drawing_line_array[circle_end_pos], drawing_line_array[circle_start_pos - 1], drawing_line_array[circle_start_pos]))
+		for linePoints in range(circle_start_pos + 1, circle_end_pos): # Adds remaining points all the way to the newest point
+			temp_hole.append(drawing_line_array[linePoints])
+			
+		var new_hole = Global.holeObject.instantiate()
+		$"../HOLES".add_child(new_hole)
+		new_hole.create_hole(temp_hole)
 		_clear_lines()
-		
-
 
 func are_lines_intersecting(a : Vector2, b : Vector2, c : Vector2, d : Vector2):
 	var denominator : float = ((b.x - a.x) * (d.y - c.y)) - ((b.y - a.y) * (d.x - c.x))
