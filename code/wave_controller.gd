@@ -30,6 +30,9 @@ func _on_score_changed() -> void:
 		load_wave()
 
 func load_wave():
+	if current_wave_index == wave_array.size():
+		# you beat all the waves, yay
+		current_wave_index -= 1
 
 	# load wave list
 	current_wave = wave_array[current_wave_index]
@@ -37,19 +40,23 @@ func load_wave():
 	spawn_index = 0
 	enemies_in_wave = current_wave["enemies"].size()
 	print("Enemies in wave: " + str(enemies_in_wave))
+
+	score_target += current_wave["score_target"]
+
 	timer.start()
 
 
 func _on_timer_timeout() -> void:
 	if spawn_index < enemies_in_wave:
-		spawn_enemy(current_wave["enemies"][spawn_index]["type"])
+		spawn_enemy(current_wave["enemies"][spawn_index]["type"],current_wave["enemies"][spawn_index]["count"])
 	else:
 		print("Finished spawning wave.")
 
 
-func spawn_enemy(enemy_type) -> void:
-	print("Spawning enemy: " + enemy_type)
-	var enemy = load("res://scenes/enemies/" + enemy_type +".tscn").instantiate()
-	get_tree().root.add_child(enemy) # is this the proper way of doing things?
+func spawn_enemy(enemy_type, times) -> void:
+	for i in range(0, times):
+		print("Spawning enemy: " + enemy_type + " Nr. " + str(i))
+		var enemy = load("res://scenes/enemies/" + enemy_type +".tscn").instantiate()
+		get_tree().root.add_child(enemy) # is this the proper way of doing things?
 	spawn_index += 1
 	timer.start()

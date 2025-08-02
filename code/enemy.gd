@@ -11,6 +11,7 @@ var score_text_animation_scene : PackedScene = preload("res://scenes/menu/score_
 func _ready() -> void:
 	pass
 	# move out of view
+	position = create_random_position(get_tree().get_first_node_in_group("Player").position, 50)
 
 
 func create_random_position(player_position : Vector2, player_view_distance) -> Vector2 :
@@ -25,9 +26,11 @@ func create_random_position(player_position : Vector2, player_view_distance) -> 
 	)
 	if player_position.distance_to(random_position) < player_view_distance:
 		# move along
-		var lacking_distance = player_view_distance - player_position.distance_to(random_position)
-		# check if out of bounds
-		if random_position.x > MAX_X or random_position.x < MIN_X or random_position.y > MAX_Y or random_position.y < MIN_Y:
+		#var lacking_distance = player_view_distance - player_position.distance_to(random_position)
+		#move_toward()
+		#
+		## check if out of bounds
+		#if random_position.x > MAX_X or random_position.x < MIN_X or random_position.y > MAX_Y or random_position.y < MIN_Y:
 			# try again
 			return create_random_position(player_position, player_view_distance)
 	return random_position
