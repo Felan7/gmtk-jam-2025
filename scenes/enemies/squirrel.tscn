@@ -61,11 +61,12 @@ animations = [{
 }],
 "loop": true,
 "name": &"moving",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Squirrel" instance=ExtResource("1_hle4w")]
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_7m6n6")
-frame_progress = 0.0
+animation = &"idle"
+frame_progress = 0.438646
