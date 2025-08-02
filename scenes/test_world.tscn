@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://duagimk7pq6ws"]
 
-[ext_resource type="Script" path="res://scenes/drawer.gd" id="1_kyfjp"]
+[ext_resource type="Script" uid="uid://dkqd5imkwxhne" path="res://scenes/drawer.gd" id="1_kyfjp"]
 [ext_resource type="PackedScene" uid="uid://di0h7kj0csh81" path="res://objects/player.tscn" id="2_amxg5"]
 
 [node name="TestWorld" type="Node2D"]
@@ -20,4 +20,4 @@ offset_right = 55.0
 offset_bottom = 54.0
 
 [node name="Player" parent="." instance=ExtResource("2_amxg5")]
-position = Vector2(230, 265)
+position = Vector2(62, 197)

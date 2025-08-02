@@ -40,11 +40,12 @@ func movement_handler(delta): # Handles movement
 				get_tree().get_first_node_in_group("LineDrawer").drawing_line_array.append(global_position)
 	if Input.is_action_just_released("input_draw_line"):
 		isDrawing = false
+		AudioMaster.play_audio("8bit_bossa")
 	
 
 func visual_handler(): # Handles visual effects and animations
 	
 	pass
 
-func destroy(): # Character dies, might trigger special behaviour
+func _destroy(): # Character dies, might trigger special behaviour
 	queue_free()

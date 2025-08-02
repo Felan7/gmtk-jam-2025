@@ -15,7 +15,7 @@ var line4 = Vector2(200, 400)
 func _ready() -> void:
 	print(are_lines_intersecting(line1, line2, line3, line4))
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	$Label.text = str("Line length: ", snappedf(length, 0.1))
 	if drawing_line_array.size() > 0:
 		queue_redraw()
