@@ -11,7 +11,8 @@ var frame_incrementer : int = 0 # Used for giving audio unique identifiers
 # Audio_busses: "Master", "MUSIC", "SFX" (Master  is only one that is not capitalized)
 
 var audio_list = { # Contains all audio files. Use the following order ["preload path", "type", "looping?", "volume adjust"]
-	"8bit_bossa": [preload("res://assets/audio/8bit Bossa.mp3"), "MUSIC", true, -12.0]
+	"8bit_bossa": [preload("res://assets/audio/8bit Bossa.mp3"), "MUSIC", true, -12.0],
+	
 	# example > name: [preload(<PATH>), "Master", loop : bool, volume_adjust : float]
 }
 

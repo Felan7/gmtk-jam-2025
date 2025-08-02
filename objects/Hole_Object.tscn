@@ -9,7 +9,7 @@ colors = PackedColorArray(1, 1, 1, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_gydn3"]
 gradient = SubResource("Gradient_wnscf")
 
-[node name="HoleObject" type="Area2D"]
+[node name="HoleObject" type="Area2D" groups=["HOLE_ENTITY"]]
 collision_layer = 8
 collision_mask = 22
 script = ExtResource("1_wnscf")

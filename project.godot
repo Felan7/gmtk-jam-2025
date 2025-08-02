@@ -35,6 +35,7 @@ audio_music=""
 audio_master=""
 audio_sfx=""
 audio=""
+HOLE_ENTITY=""
 
 [input]
 

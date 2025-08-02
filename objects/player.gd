@@ -71,11 +71,11 @@ func _process(delta: float) -> void:
 			#queue_redraw()
 	else:
 		point_arr.clear()
-
+"""
 func _draw() -> void: # Debug circles
 	for dot in point_arr:
 		draw_circle(dot - global_position, 4, Color.RED, false)
-
+"""
 func visual_handler(): # Handles visual effects and animations
 	
 	pass
