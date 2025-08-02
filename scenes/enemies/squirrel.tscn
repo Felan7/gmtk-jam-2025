@@ -1,32 +1,31 @@
-[gd_scene load_steps=12 format=3 uid="uid://ble86j5fr2b2o"]
+[gd_scene load_steps=11 format=3 uid="uid://bu0dlyumsy0q2"]
 
-[ext_resource type="PackedScene" uid="uid://dnntkyiri11no" path="res://scenes/enemies/enemy.tscn" id="1_84kd7"]
-[ext_resource type="Script" uid="uid://bfgnxlb4oosrp" path="res://code/enemies/snail.gd" id="2_adgem"]
+[ext_resource type="PackedScene" uid="uid://bv8tr2mr3lkqi" path="res://scenes/enemies/walking_enemy.tscn" id="1_hle4w"]
 [ext_resource type="Texture2D" uid="uid://bqs1xtvxkqg84" path="res://assets/art/SquirrelDeath.png" id="3_spjoy"]
 [ext_resource type="Texture2D" uid="uid://bax6c0nvanpxy" path="res://assets/art/SquirrelStand.png" id="4_nhpxx"]
 [ext_resource type="Texture2D" uid="uid://j1el0x35ovn4" path="res://assets/art/SquirrelRun.png" id="5_678rx"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eksx4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxeoh"]
 atlas = ExtResource("5_678rx")
 region = Rect2(0, 0, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vr7hw"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_84kd7"]
 atlas = ExtResource("5_678rx")
 region = Rect2(32, 0, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6a01x"]
-atlas = ExtResource("5_678rx")
-region = Rect2(96, 0, 32, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7qfbi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_adgem"]
 atlas = ExtResource("5_678rx")
 region = Rect2(64, 0, 32, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_e15w6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_spjoy"]
+atlas = ExtResource("5_678rx")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhpxx"]
 atlas = ExtResource("5_678rx")
 region = Rect2(128, 0, 32, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2hsij"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_7m6n6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -46,30 +45,27 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_eksx4")
+"texture": SubResource("AtlasTexture_vxeoh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vr7hw")
+"texture": SubResource("AtlasTexture_84kd7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6a01x")
+"texture": SubResource("AtlasTexture_adgem")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7qfbi")
+"texture": SubResource("AtlasTexture_spjoy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_e15w6")
+"texture": SubResource("AtlasTexture_nhpxx")
 }],
 "loop": true,
-"name": &"walking",
+"name": &"moving",
 "speed": 5.0
 }]
 
-[node name="Squirrel" instance=ExtResource("1_84kd7")]
-script = ExtResource("2_adgem")
+[node name="Squirrel" instance=ExtResource("1_hle4w")]
 
 [node name="AnimatedSprite2D" parent="." index="1"]
-sprite_frames = SubResource("SpriteFrames_2hsij")
-animation = &"walking"
-autoplay = "idle"
-frame_progress = 0.633318
+sprite_frames = SubResource("SpriteFrames_7m6n6")
+frame_progress = 0.0

@@ -1,8 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://3f8lehicrp8t"]
+[gd_scene load_steps=6 format=3 uid="uid://3f8lehicrp8t"]
 
 [ext_resource type="Texture2D" uid="uid://dt1bayxttfayh" path="res://assets/art/placeholder_16x16.png" id="1_j58np"]
-[ext_resource type="PackedScene" uid="uid://ble86j5fr2b2o" path="res://scenes/enemies/squirrel.tscn" id="2_0hxkl"]
-[ext_resource type="PackedScene" uid="uid://bv8tr2mr3lkqi" path="res://scenes/enemies/snail.tscn" id="2_qst1g"]
 [ext_resource type="PackedScene" uid="uid://bvbkb8ydj0qph" path="res://scenes/enemies/wave_controller.tscn" id="3_qst1g"]
 [ext_resource type="PackedScene" uid="uid://ddcbfvxjqyycb" path="res://scenes/menu/user_interface.tscn" id="4_6iaxk"]
 [ext_resource type="PackedScene" uid="uid://cg1w7tfeanm3h" path="res://scenes/power_ups/power_up_carrot.tscn" id="5_4oxa0"]
@@ -20,12 +18,6 @@ shape = SubResource("RectangleShape2D_6iaxk")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player"]
 texture = ExtResource("1_j58np")
-
-[node name="Squirrel" parent="Player" instance=ExtResource("2_0hxkl")]
-position = Vector2(36, 60)
-
-[node name="Snail" parent="." instance=ExtResource("2_qst1g")]
-position = Vector2(110, 117)
 
 [node name="WaveController" parent="." instance=ExtResource("3_qst1g")]
 

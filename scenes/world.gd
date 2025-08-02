@@ -7,4 +7,3 @@ extends Node2D
 
 func _process(delta: float) -> void:
 	camera_2d.global_position = player.global_position
-	
