@@ -1,5 +1,7 @@
 extends Node
 
+const holeObject = preload("res://objects/Hole_Object.tscn") # Hole object
+
 signal score_changed
 
 var score : int = 0

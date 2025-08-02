@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dd364e5dvs8sk"]
+
+[ext_resource type="Script" uid="uid://spt4wfuyhdth" path="res://objects/hole_object.gd" id="1_wnscf"]
+
+[sub_resource type="Gradient" id="Gradient_wnscf"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_gydn3"]
+gradient = SubResource("Gradient_wnscf")
+
+[node name="HoleObject" type="Area2D"]
+collision_layer = 8
+collision_mask = 22
+script = ExtResource("1_wnscf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="CollisionPolygon2D"]
+z_index = -1
+texture_repeat = 2
+color = Color(0, 0.177032, 0.345991, 1)
+texture = SubResource("GradientTexture1D_gydn3")
+
+[node name="Line2D" type="Line2D" parent="CollisionPolygon2D/Polygon2D"]
+closed = true
+width = 6.0
+default_color = Color(0, 0, 0, 1)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
