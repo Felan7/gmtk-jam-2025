@@ -11,14 +11,14 @@ var score_text_animation_scene : PackedScene = preload("res://scenes/menu/score_
 func _ready() -> void:
 	pass
 	# move out of view
-	position = create_random_position(get_tree().get_first_node_in_group("Player").position, 50)
+	position = create_random_position(get_tree().get_first_node_in_group("Player").position, 300)
 
 
 func create_random_position(player_position : Vector2, player_view_distance) -> Vector2 :
-	const MAX_X = 1080
-	const MAX_Y = 1080
-	const MIN_X = 0.0
-	const MIN_Y = 0.0
+	const MAX_X = 1024
+	const MAX_Y = 1024
+	const MIN_X = -1024
+	const MIN_Y = -1024
 
 	var random_position = Vector2(
 		randf_range(MIN_X, MAX_X),

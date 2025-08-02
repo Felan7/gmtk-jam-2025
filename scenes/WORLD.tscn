@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://drk173sotju3u"]
+[gd_scene load_steps=8 format=3 uid="uid://coou8b1gt10l2"]
 
-[ext_resource type="Script" uid="uid://nmylplscpmtv" path="res://scenes/world.gd" id="1_vem1d"]
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_vem1d"]
 [ext_resource type="Script" uid="uid://dkqd5imkwxhne" path="res://scenes/drawer.gd" id="2_ayg7v"]
 [ext_resource type="PackedScene" uid="uid://di0h7kj0csh81" path="res://objects/player.tscn" id="2_km3x0"]
 [ext_resource type="PackedScene" uid="uid://ddcbfvxjqyycb" path="res://scenes/menu/user_interface.tscn" id="3_ayg7v"]
+[ext_resource type="PackedScene" uid="uid://bvbkb8ydj0qph" path="res://scenes/enemies/wave_controller.tscn" id="5_t3haj"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ayg7v"]
 
@@ -36,7 +37,7 @@ editor_draw_limits = true
 
 [node name="UserInterface" parent="Camera2D/CanvasLayer" instance=ExtResource("3_ayg7v")]
 
-[node name="Player" parent="." instance=ExtResource("2_km3x0")]
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_km3x0")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.25098)
@@ -46,3 +47,5 @@ offset_top = -1024.0
 offset_right = 1000.0
 offset_bottom = 1000.0
 texture = SubResource("NoiseTexture2D_t3haj")
+
+[node name="WaveController" parent="." instance=ExtResource("5_t3haj")]
