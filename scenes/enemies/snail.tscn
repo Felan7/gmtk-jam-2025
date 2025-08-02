@@ -55,7 +55,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ju45m"]
-radius = 96.0
+radius = 120.0
 
 [node name="Snail" instance=ExtResource("1_8d0rg")]
 script = ExtResource("2_3pso2")
@@ -73,7 +73,7 @@ monitorable = false
 shape = SubResource("CircleShape2D_ju45m")
 
 [node name="Timer" type="Timer" parent="." index="3"]
-wait_time = 3.0
+wait_time = 5.0
 one_shot = true
 autostart = true
 

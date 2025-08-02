@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://ble86j5fr2b2o"]
+
+[ext_resource type="PackedScene" uid="uid://dnntkyiri11no" path="res://scenes/enemies/enemy.tscn" id="1_84kd7"]
+[ext_resource type="Script" uid="uid://bfgnxlb4oosrp" path="res://code/enemies/snail.gd" id="2_adgem"]
+[ext_resource type="Texture2D" uid="uid://bqs1xtvxkqg84" path="res://assets/art/SquirrelDeath.png" id="3_spjoy"]
+[ext_resource type="Texture2D" uid="uid://bax6c0nvanpxy" path="res://assets/art/SquirrelStand.png" id="4_nhpxx"]
+[ext_resource type="Texture2D" uid="uid://j1el0x35ovn4" path="res://assets/art/SquirrelRun.png" id="5_678rx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eksx4"]
+atlas = ExtResource("5_678rx")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr7hw"]
+atlas = ExtResource("5_678rx")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6a01x"]
+atlas = ExtResource("5_678rx")
+region = Rect2(96, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qfbi"]
+atlas = ExtResource("5_678rx")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e15w6"]
+atlas = ExtResource("5_678rx")
+region = Rect2(128, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hsij"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_spjoy")
+}],
+"loop": true,
+"name": &"dying",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_nhpxx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eksx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr7hw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6a01x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qfbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e15w6")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[node name="Squirrel" instance=ExtResource("1_84kd7")]
+script = ExtResource("2_adgem")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_2hsij")
+animation = &"walking"
+autoplay = "idle"
+frame_progress = 0.633318

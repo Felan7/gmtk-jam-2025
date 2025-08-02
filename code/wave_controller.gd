@@ -10,7 +10,8 @@ var enemies_in_wave : int = INF
 const wave_array = [
 	{"enemies" : [
 		{"type" :"potted_plant", "count" : 10},
-		{"type" :"snail", "count" : 10}],
+		{"type" :"snail", "count" : 10},
+		{"type" :"squirrel", "count" : 100}],
 	"bonus" : 25,
 	"score_target" : 100}
 ]
