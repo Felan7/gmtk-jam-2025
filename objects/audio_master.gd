@@ -5,16 +5,32 @@ extends Node
 const audioPlayer = preload("res://objects/audio_stream_player.tscn")
 var frame_incrementer : int = 0 # Used for giving audio unique identifiers
 
+var audio_MASTER_volume : int = 50
+var audio_MUSIC_volume : int = 50
+var audio_SFX_volume : int = 50
+
+
 # NOTE (s)
 # - When setting audio to loop, don't set it in import settings. We manually set it to loop based on the "looping" bool in the audio_list!
 # - Also, it's easier to add "volume_adjust" here than manually change volume of the file itself. Remember to test the audio volumes first!
 # Audio_busses: "Master", "MUSIC", "SFX" (Master  is only one that is not capitalized)
 
 var audio_list = { # Contains all audio files. Use the following order ["preload path", "type", "looping?", "volume adjust"]
-	"8bit_bossa": [preload("res://assets/audio/8bit Bossa.mp3"), "MUSIC", true, -12.0],
+	"8bit_bossa": [preload("res://assets/audio/8bit Bossa.mp3"), "MUSIC", true, -6.0],
 	
 	# example > name: [preload(<PATH>), "Master", loop : bool, volume_adjust : float]
 }
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("debug_end"):
+		print(">>>DEBUG INPUT, Shift+End => Killing all audio!")
+		kill_audio()
+	update_audio_volume_bus()
+
+func update_audio_volume_bus():
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(audio_MASTER_volume / 100.0))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("MUSIC"), linear_to_db(audio_MUSIC_volume / 100.0))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(audio_SFX_volume / 100.0))
 
 func play_audio(audio_name): ## Plays audio
 	if audio_list.has(audio_name): # If we have audio with that name in the audio_list
@@ -49,8 +65,3 @@ func kill_audio(bus_type : String = ""): # Kill all audio from specific bus. If 
 			audio_to_kill.append_array(get_tree().get_nodes_in_group("audio"))
 	for audio_node in audio_to_kill:
 		audio_node._destroy()
-
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("debug_end"):
-		print(">>>DEBUG INPUT, Shift+End => Killing all audio!")
-		kill_audio()
