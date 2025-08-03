@@ -22,4 +22,4 @@ func score() -> void:
 		Global.high_score = Global.score
 		$CenterContainer/VBoxContainer/Label_NewHighScore.visible = true
 	$CenterContainer/VBoxContainer/Label_HighScore.text = "High Score: " + str(Global.high_score)
-	Global.score
+	Global.score = 0

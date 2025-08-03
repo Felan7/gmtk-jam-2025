@@ -97,7 +97,7 @@ func movement_handler(delta): # Handles movement
 	if Input.is_action_just_released("input_draw_line"):
 		isDrawing = false
 	"""
-		
+
 
 	## Maybe make making dots happen on process and drawing/update speed depends on character speed? (faster movement, more frequent updates?)
 
