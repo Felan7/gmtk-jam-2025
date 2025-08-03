@@ -1,10 +1,7 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=2 format=3 uid="uid://cm5hyyu06kll8"]
-=======
-[gd_scene load_steps=2 format=3 uid="uid://dd364e5dvs8sk"]
->>>>>>> Stashed changes
+[gd_scene load_steps=3 format=3 uid="uid://tixlngpkhcja"]
 
 [ext_resource type="Script" uid="uid://spt4wfuyhdth" path="res://objects/hole_object.gd" id="1_wnscf"]
+[ext_resource type="Script" uid="uid://bhmka0jmw0uik" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_gydn3"]
 
 [node name="HoleObject" type="Area2D" groups=["HOLE_ENTITY"]]
 collision_layer = 8
@@ -27,5 +24,34 @@ default_color = Color(0.15, 0.075825, 0.0465, 1)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
+
+[node name="SfxrStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+script = ExtResource("2_gydn3")
+wave/type = 1
+sample_params/sound_vol = 0.25
+sample_params/sample_rate = 44100.0
+envelope/attack_time = 0.0
+envelope/sustain_time = 0.6641
+envelope/punch_time = 0.0
+envelope/decay_time = 0.0
+frequency/start_frequency = 0.351734
+frequency/min_freq_cutoff = 0.0
+frequency/slide = 0.0
+frequency/delta_slide = 0.0
+vibrato/depth = 0.0
+vibrato/speed = 0.0
+arpeggiation/frequency_mult = 0.0
+arpeggiation/change_speed = 0.0
+duty_cycle/duty_cycle = 0.0
+duty_cycle/sweep = 0.0
+retrigger/rate = 0.0
+flanger/offset = 0.0
+flanger/sweep = 0.0
+low_pass_filter/cutoff_frequency = 1.0
+low_pass_filter/cutoff_sweep = 0.0
+low_pass_filter/resonance = 0.0
+high_pass_filter/cutoff_frequency = 0.0
+high_pass_filter/cutoff_sweep = 0.0
+metadata/_custom_type_script = "uid://bhmka0jmw0uik"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
