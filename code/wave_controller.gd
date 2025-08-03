@@ -9,33 +9,26 @@ var enemies_in_wave : int = INF
 
 const wave_array = [
 	{"enemies" : [
-		{"type" :"cat", "count" : 1000},
+		{"type" :"potted_plant", "count" : 15}],
+	"bonus" : 1,
+	"score_target" : 3},
+	{"enemies" : [
+		{"type" :"potted_plant", "count" : 10},
+		{"type" :"snail", "count" : 10},
+		{"type" :"squirrel", "count" : 10}],
+	"bonus" : 5,
+	"score_target" : 10},
+	{"enemies" : [
+		{"type" :"squirrel", "count" : 30}],
+	"bonus" : 15,
+	"score_target" : 25},
+	{"enemies" : [
+		{"type" :"cat", "count" : 10},
 		{"type" :"brown_cat", "count" : 10},
 		{"type" :"chocolate_cat", "count" : 10},
 		{"type" :"white_cat", "count" : 10}],
 	"bonus" : 25,
-	"score_target" : 10},
-	{"enemies" : [
-		{"type" :"potted_plant", "count" : 10},
-		{"type" :"snail", "count" : 10},
-		{"type" :"potted_plant", "count" : 1000},
-		{"type" :"snail", "count" : 9000},
-		{"type" :"potted_plant", "count" : 1000},
-		{"type" :"snail", "count" : 9000},
-		{"type" :"squirrel", "count" : 10}],
-	"bonus" : 25,
-	"score_target" : 10},
-	{"enemies" : [
-		{"type" :"squirrel", "count" : 10},
-		{"type" :"squirrel", "count" : 10},
-		{"type" :"squirrel", "count" : 10}],
-	"bonus" : 25,
-	"score_target" : 10},
-	{"enemies" : [
-		{"type" :"cat", "count" : 30},
-		],
-	"bonus" : 25,
-	"score_target" : 10}
+	"score_target" : 100},
 ]
 
 func _ready() -> void:
@@ -49,9 +42,10 @@ func _on_score_changed() -> void:
 		current_wave_index += 1
 		print("Now wave: " + str(current_wave_index))
 		# award wave completion bonus
-		Global.score += current_wave["bonus"]
+		var bonus = current_wave["bonus"]
 		load_wave()
 		Global.set_level(current_wave_index)
+		Global.add_score(bonus)
 
 func load_wave():
 	if current_wave_index == wave_array.size():
