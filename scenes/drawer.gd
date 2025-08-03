@@ -8,7 +8,7 @@ var drawing_line_array : Array[Vector2] = [] # Last position should be player po
 var previous_size : int = 0 # For keeping track of previous location for intersection math
 var length : float = 0 # How long is the current line
 var max_line_length = 1024 # What is the max length of the line
-#var holes : Dictionary  = {} # Collection 
+#var holes : Dictionary  = {} # Collection
 
 func _ready() -> void:
 	player_object = get_tree().get_first_node_in_group("Player")

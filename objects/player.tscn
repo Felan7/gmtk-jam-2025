@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=4 uid="uid://di0h7kj0csh81"]
+[gd_scene load_steps=38 format=4 uid="uid://di0h7kj0csh81"]
 
 [ext_resource type="Script" uid="uid://1bvjkuh52pau" path="res://objects/player.gd" id="1_ykyjo"]
 [ext_resource type="Texture2D" uid="uid://dsryxas0lbqsm" path="res://assets/art/butterknife_fairy_still.png" id="3_nmc1l"]
 [ext_resource type="Script" uid="uid://bhmka0jmw0uik" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="3_uxov2"]
+[ext_resource type="Texture2D" uid="uid://cko4opnhrqp16" path="res://assets/art/butterknife_fairy_up_spritesheet.png" id="4_3rerk"]
 [ext_resource type="Texture2D" uid="uid://u4q3e1r8r8t3" path="res://assets/art/butterknife_fairy_side_movement_spritesheet.png" id="4_f46kd"]
+[ext_resource type="Texture2D" uid="uid://b34r3bwe3rwar" path="res://assets/art/butterknife_fairy_down_spritesheet.png" id="6_i825w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ykyjo"]
 
@@ -51,6 +53,38 @@ data = PackedByteArray("AQMDAwICAgIBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEB
 loop_mode = 1
 loop_end = 40000
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqnmn"]
+atlas = ExtResource("4_3rerk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5esnd"]
+atlas = ExtResource("4_3rerk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1o2u"]
+atlas = ExtResource("4_3rerk")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4hvt"]
+atlas = ExtResource("4_3rerk")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sux5"]
+atlas = ExtResource("4_3rerk")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqfnf"]
+atlas = ExtResource("4_3rerk")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhqug"]
+atlas = ExtResource("4_3rerk")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyhxw"]
+atlas = ExtResource("4_3rerk")
+region = Rect2(112, 0, 16, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_3rerk"]
 atlas = ExtResource("4_f46kd")
 region = Rect2(0, 0, 16, 16)
@@ -87,6 +121,38 @@ region = Rect2(112, 0, 16, 16)
 atlas = ExtResource("4_f46kd")
 region = Rect2(128, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq66c"]
+atlas = ExtResource("6_i825w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_183dw"]
+atlas = ExtResource("6_i825w")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nflk0"]
+atlas = ExtResource("6_i825w")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqwil"]
+atlas = ExtResource("6_i825w")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ggel1"]
+atlas = ExtResource("6_i825w")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8ffw"]
+atlas = ExtResource("6_i825w")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ve04"]
+atlas = ExtResource("6_i825w")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rhe2"]
+atlas = ExtResource("6_i825w")
+region = Rect2(112, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_mqnmn"]
 animations = [{
 "frames": [{
@@ -99,31 +165,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3rerk")
+"texture": SubResource("AtlasTexture_mqnmn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i825w")
+"texture": SubResource("AtlasTexture_5esnd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3rfka")
+"texture": SubResource("AtlasTexture_w1o2u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i8sra")
+"texture": SubResource("AtlasTexture_s4hvt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4vq5b")
+"texture": SubResource("AtlasTexture_2sux5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3nfmf")
+"texture": SubResource("AtlasTexture_iqfnf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_42cpl")
+"texture": SubResource("AtlasTexture_bhqug")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vqq2l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r673r")
+"texture": SubResource("AtlasTexture_cyhxw")
 }],
 "loop": true,
 "name": &"moving_down",
@@ -163,31 +226,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3rerk")
+"texture": SubResource("AtlasTexture_wq66c")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i825w")
+"texture": SubResource("AtlasTexture_183dw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3rfka")
+"texture": SubResource("AtlasTexture_nflk0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_i8sra")
+"texture": SubResource("AtlasTexture_uqwil")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4vq5b")
+"texture": SubResource("AtlasTexture_ggel1")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3nfmf")
+"texture": SubResource("AtlasTexture_d8ffw")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_42cpl")
+"texture": SubResource("AtlasTexture_2ve04")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vqq2l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r673r")
+"texture": SubResource("AtlasTexture_0rhe2")
 }],
 "loop": true,
 "name": &"moving_up",
@@ -214,7 +274,6 @@ libraries = {
 }
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(7, 7)
 lifetime = 0.29
 direction = Vector2(0, 0)
 gravity = Vector2(0, 0)
@@ -255,7 +314,8 @@ high_pass_filter/cutoff_sweep = 0.0
 metadata/_custom_type_script = "uid://bhmka0jmw0uik"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-8, -8)
 sprite_frames = SubResource("SpriteFrames_mqnmn")
 animation = &"moving_up"
 autoplay = "moving_side"
+frame_progress = 0.700019
+offset = Vector2(-8, -8)

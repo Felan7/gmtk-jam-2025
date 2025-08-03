@@ -55,12 +55,14 @@ func movement_handler(delta): # Handles movement
 		sprite.animation = "moving_side"
 		sprite.flip_h = true
 		sprite.position.x = 16.0
-	elif input_velocity.y > 0:
-		sprite.animation = "moving_up"
-		sprite.flip_h = true
 	elif input_velocity.y < 0:
+		sprite.animation = "moving_up"
+		sprite.flip_h = false
+		sprite.position.x = 0.0
+	elif input_velocity.y > 0:
 		sprite.animation = "moving_down"
-		sprite.flip_h = true
+		sprite.flip_h = false
+		sprite.position.x = 0.0
 
 	if input_velocity.length() > 0:
 		velocity = lerp(velocity, input_velocity.normalized() * SPEED * delta, 0.1)
