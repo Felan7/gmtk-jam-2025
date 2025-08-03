@@ -17,3 +17,4 @@ func _ready() -> void:
 
 func game_over():
 	$Camera2D/CanvasLayer/GameOverScreen.visible = true
+	$Camera2D/CanvasLayer/GameOverScreen.score()
