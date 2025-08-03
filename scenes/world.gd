@@ -21,7 +21,7 @@ func _dev_spawn_enemies():
 		"plant": ["potted_plant"],
 		"squirrel": ["squirrel"]
 	}
-	
+
 	for a in range(10):
 		#$WaveController.spawn_enemy()
 		pass

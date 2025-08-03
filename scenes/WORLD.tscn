@@ -12,6 +12,7 @@
 [sub_resource type="Curve" id="Curve_ardj1"]
 _data = [Vector2(0, 0.325843), 0.0, 0.0, 0, 0, Vector2(0.0106383, 0.505618), 0.0, 0.0, 0, 0, Vector2(0.2, 0.3), 0.0, 0.0, 0, 0, Vector2(0.3, 0.7), 0.0, 0.0, 0, 0, Vector2(0.5, 0.4), 0.0, 0.0, 0, 0, Vector2(0.7, 0.7), 0.0, 0.0, 0, 0, Vector2(0.8, 0.4), 0.0, 0.0, 0, 0, Vector2(0.9, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 9
+metadata/_snap_enabled = true
 
 [sub_resource type="Animation" id="Animation_82gsp"]
 length = 0.001
@@ -101,7 +102,7 @@ autoplay = "default"
 points = PackedVector2Array(16, -91)
 width = 6.0
 width_curve = SubResource("Curve_ardj1")
-default_color = Color(0.81, 0.53055, 0.2511, 1)
+default_color = Color(1, 0.655, 0.31, 1)
 texture = ExtResource("3_ardj1")
 texture_mode = 1
 joint_mode = 1
