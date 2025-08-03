@@ -12,10 +12,11 @@ var enemy_type : String = "" # Enemy type
 var is_dying : bool = false
 var isPlayerCloseEnough : bool = false
 var collidedNodes = []
+@export var manualPlacement : bool = false
 
 func _ready() -> void:
-	# move out of view
-	position = create_random_position(get_tree().get_first_node_in_group("Player").position, 300)
+	if not manualPlacement and get_tree().get_first_node_in_group("Player"):
+		position = create_random_position(get_tree().get_first_node_in_group("Player").position, 300)
 
 func _physics_process(delta: float) -> void:
 	if collidedNodes.size() > 0:

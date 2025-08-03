@@ -9,6 +9,8 @@ var speed = 40
 
 
 func _physics_process(_delta: float) -> void:
+	if collidedNodes.size() > 0:
+		push_entities()
 	if player_is_in_reach:
 		velocity = Vector2.ZERO
 		if player and not is_dying:

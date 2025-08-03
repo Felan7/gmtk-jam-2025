@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://coou8b1gt10l2"]
+[gd_scene load_steps=17 format=3 uid="uid://coou8b1gt10l2"]
 
 [ext_resource type="Script" uid="uid://nmylplscpmtv" path="res://scenes/world.gd" id="1_vem1d"]
 [ext_resource type="Script" uid="uid://dkqd5imkwxhne" path="res://scenes/drawer.gd" id="2_ayg7v"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bvbkb8ydj0qph" path="res://scenes/enemies/wave_controller.tscn" id="5_t3haj"]
 [ext_resource type="Texture2D" uid="uid://bqfnv0hmte840" path="res://assets/art/TIleset.png" id="6_ardj1"]
 [ext_resource type="PackedScene" uid="uid://uiqdtt0a352b" path="res://scenes/menu/start_screen.tscn" id="8_njbdt"]
+[ext_resource type="PackedScene" uid="uid://bkwqsvkleaf7t" path="res://scenes/enemies/potted_plant.tscn" id="10_um5ma"]
 
 [sub_resource type="Curve" id="Curve_ardj1"]
 _data = [Vector2(0, 0.325843), 0.0, 0.0, 0, 0, Vector2(0.0106383, 0.505618), 0.0, 0.0, 0, 0, Vector2(0.2, 0.3), 0.0, 0.0, 0, 0, Vector2(0.3, 0.7), 0.0, 0.0, 0, 0, Vector2(0.5, 0.4), 0.0, 0.0, 0, 0, Vector2(0.7, 0.7), 0.0, 0.0, 0, 0, Vector2(0.8, 0.4), 0.0, 0.0, 0, 0, Vector2(0.9, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -181,3 +182,15 @@ rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_t3haj")
 
 [node name="ENEMY_CONTAINER" type="Node2D" parent="." groups=["enemy_container"]]
+
+[node name="PottedPlant" parent="." instance=ExtResource("10_um5ma")]
+position = Vector2(-95, 63)
+manualPlacement = true
+
+[node name="PottedPlant2" parent="." instance=ExtResource("10_um5ma")]
+position = Vector2(-126, 19)
+manualPlacement = true
+
+[node name="PottedPlant3" parent="." instance=ExtResource("10_um5ma")]
+position = Vector2(-138, 59)
+manualPlacement = true
