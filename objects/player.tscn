@@ -214,7 +214,6 @@ libraries = {
 }
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(7, 7)
 lifetime = 0.29
 direction = Vector2(0, 0)
 gravity = Vector2(0, 0)
@@ -258,4 +257,5 @@ metadata/_custom_type_script = "uid://bhmka0jmw0uik"
 sprite_frames = SubResource("SpriteFrames_mqnmn")
 animation = &"moving_side"
 autoplay = "moving_side"
-frame_progress = 0.449452
+frame_progress = 0.0598518
+offset = Vector2(-8, -8)

@@ -50,9 +50,12 @@ func movement_handler(delta): # Handles movement
 	if input_velocity.x > 0:
 		sprite.animation = "moving_side"
 		sprite.flip_h = false
+		sprite.position.x = 0.0
 	elif input_velocity.x < 0:
 		sprite.animation = "moving_side"
 		sprite.flip_h = true
+		sprite.position.x = 16.0
+
 	elif input_velocity.y > 0:
 		sprite.animation = "moving_up"
 		sprite.flip_h = true
@@ -64,9 +67,11 @@ func movement_handler(delta): # Handles movement
 		velocity = lerp(velocity, input_velocity.normalized() * SPEED * delta, 0.1)
 		if isDrawing:
 			particles.emitting = true
+			sfx_cutting.playing = true
 
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, 0.1)
+		sfx_cutting.playing = false
 
 
 
@@ -80,11 +85,11 @@ func movement_handler(delta): # Handles movement
 		if not isDrawing:
 			get_tree().get_first_node_in_group("LineDrawer")._clear_lines()
 		isDrawing = true
-		sfx_cutting.playing = true
+
 
 	if Input.is_action_just_released("input_draw_line"):
 		isDrawing = false
-		sfx_cutting.playing = false
+
 		#AudioMaster.play_audio("8bit_bossa")
 
 	## Maybe make making dots happen on process and drawing/update speed depends on character speed? (faster movement, more frequent updates?)
