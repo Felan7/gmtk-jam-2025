@@ -6,7 +6,9 @@ var score_points = 1
 
 var score_text_animation_scene : PackedScene = preload("res://scenes/menu/score_text_animation.tscn")
 
+@onready var sfx_death = $Sfxr_Death
 
+var is_dying : bool = false
 
 func _ready() -> void:
 	pass
@@ -37,7 +39,10 @@ func create_random_position(player_position : Vector2, player_view_distance) -> 
 
 
 func die() -> void:
+	is_dying = true
 	print("Death is upon me says " + str(name))
+	sfx_death.pitch_scale = randf_range(0.6,1.5)
+	sfx_death.play()
 
 	# dying animation
 	sprite.animation = "dying"

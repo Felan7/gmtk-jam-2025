@@ -6,10 +6,12 @@ var player :CharacterBody2D = null
 
 var speed = 40
 
+
+
 func _physics_process(delta: float) -> void:
 	if player_is_in_reach:
 		velocity = Vector2.ZERO
-		if player:
+		if player and not is_dying:
 			velocity = position.direction_to(player.position) * speed
 			if player.position.x > position.x:
 				$AnimatedSprite2D.flip_h = false
