@@ -1,10 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://coou8b1gt10l2"]
+[gd_scene load_steps=16 format=3 uid="uid://coou8b1gt10l2"]
 
 [ext_resource type="Script" uid="uid://nmylplscpmtv" path="res://scenes/world.gd" id="1_vem1d"]
 [ext_resource type="Script" uid="uid://dkqd5imkwxhne" path="res://scenes/drawer.gd" id="2_ayg7v"]
 [ext_resource type="PackedScene" uid="uid://di0h7kj0csh81" path="res://objects/player.tscn" id="2_km3x0"]
-[ext_resource type="Texture2D" uid="uid://boq12w2hny6fu" path="res://assets/art/HoleTile.png" id="3_ardj1"]
 [ext_resource type="PackedScene" uid="uid://ddcbfvxjqyycb" path="res://scenes/menu/user_interface.tscn" id="3_ayg7v"]
+[ext_resource type="Texture2D" uid="uid://b56mgundnmwbi" path="res://assets/art/space.png" id="3_njbdt"]
 [ext_resource type="PackedScene" uid="uid://duhugmjoo5mlq" path="res://scenes/menu/game_over_screen.tscn" id="4_82gsp"]
 [ext_resource type="PackedScene" uid="uid://bvbkb8ydj0qph" path="res://scenes/enemies/wave_controller.tscn" id="5_t3haj"]
 [ext_resource type="Texture2D" uid="uid://bqfnv0hmte840" path="res://assets/art/TIleset.png" id="6_ardj1"]
@@ -32,7 +32,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:default_color:v")
+tracks/1/path = NodePath(".:modulate:v")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -61,14 +61,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:default_color:v")
+tracks/1/path = NodePath(".:modulate:v")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0, 0.266666, 1, 1), 1.0, Color(0, 0.266666, 1, 1)]
+"values": [Color(0, 0, 1, 1), 1.0, Color(0, 0, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_um5ma"]
@@ -76,6 +76,9 @@ _data = {
 &"RESET": SubResource("Animation_82gsp"),
 &"default": SubResource("Animation_njbdt")
 }
+
+[sub_resource type="Gradient" id="Gradient_82gsp"]
+colors = PackedColorArray(1, 0, 1, 1, 0, 0, 1, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t3haj"]
 
@@ -100,11 +103,11 @@ libraries = {
 autoplay = "default"
 
 [node name="Cut_Line" type="Line2D" parent="LineDrawer"]
-points = PackedVector2Array(16, -91)
+points = PackedVector2Array(0, 0)
 width = 6.0
 width_curve = SubResource("Curve_ardj1")
-default_color = Color(1, 0.655, 0.31, 1)
-texture = ExtResource("3_ardj1")
+gradient = SubResource("Gradient_82gsp")
+texture = ExtResource("3_njbdt")
 texture_mode = 1
 joint_mode = 1
 begin_cap_mode = 2
