@@ -50,20 +50,11 @@ func movement_handler(delta): # Handles movement
 	if input_velocity.x > 0:
 		sprite.animation = "moving_side"
 		sprite.flip_h = false
-<<<<<<< HEAD
-		$Sprite.position = Vector2(-8, -8)
-	elif input_velocity.x < 0:
-		sprite.animation = "moving_side"
-		sprite.flip_h = true
-		$Sprite.position = Vector2(8, -8)
-=======
 		sprite.position.x = 0.0
 	elif input_velocity.x < 0:
 		sprite.animation = "moving_side"
 		sprite.flip_h = true
 		sprite.position.x = 16.0
-
->>>>>>> 177c630f663cc508f818e3de466c241046682a20
 	elif input_velocity.y > 0:
 		sprite.animation = "moving_up"
 		sprite.flip_h = true
