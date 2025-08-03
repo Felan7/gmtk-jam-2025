@@ -19,7 +19,8 @@ const wave_array = [
 	"bonus" : 10,
 	"score_target" : 20},
 	{"enemies" : [
-		{"type" :"squirrel", "count" : 30},],
+		{"type" :"squirrel", "count" : 10},
+		{"type" :"hedgehog", "count" : 20},],
 	"bonus" : 15,
 	"score_target" : 25},
 	{"enemies" : [
@@ -29,6 +30,23 @@ const wave_array = [
 		{"type" :"white_cat", "count" : 10}],
 	"bonus" : 25,
 	"score_target" : 100},
+	{"enemies" : [
+		{"type" :"witch", "count" : 5}],
+	"bonus" : 25,
+	"score_target" : 100},
+
+	{"enemies" : [
+		{"type" :"potted_plant", "count" : 10},
+		{"type" :"cat", "count" : 10},
+		{"type" :"brown_cat", "count" : 10},
+		{"type" :"chocolate_cat", "count" : 10},
+		{"type" :"white_cat", "count" : 10},
+		{"type" :"squirrel", "count" : 10},
+		{"type" :"hedgehog", "count" : 10},
+		{"type" :"snail", "count" : 10},
+		{"type" :"witch", "count" : 5}],
+	"bonus" : 50,
+	"score_target" : 200},
 
 ]
 

@@ -4,7 +4,7 @@ class_name WalkingEnemy
 var player_is_in_reach : bool = false
 var player :CharacterBody2D = null
 
-var speed = 40
+var speed = 80
 
 
 
