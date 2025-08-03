@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://duhugmjoo5mlq"]
+[gd_scene load_steps=5 format=3 uid="uid://duhugmjoo5mlq"]
 
 [ext_resource type="Theme" uid="uid://4fkci148rrkp" path="res://scenes/menu/user_interface_theme.tres" id="1_xsbk6"]
+[ext_resource type="Script" uid="uid://c6ilkvnslfm8x" path="res://code/game_over_screen.gd" id="2_8wk50"]
+[ext_resource type="PackedScene" uid="uid://coou8b1gt10l2" path="res://scenes/WORLD.tscn" id="3_8smoi"]
+[ext_resource type="PackedScene" uid="uid://bn1wocoog5stp" path="res://scenes/menu/main_menu.tscn" id="4_wogbn"]
 
 [node name="GameOverScreen" type="Control"]
 layout_mode = 3
@@ -10,6 +13,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_xsbk6")
+script = ExtResource("2_8wk50")
+start_scene = ExtResource("3_8smoi")
+menu_scene = ExtResource("4_wogbn")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -31,11 +37,29 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="Label_GameOver" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.526793, 1.2153e-06, 3.85046e-07, 1)
 theme_override_font_sizes/font_size = 31
 text = "Game Over"
+horizontal_alignment = 1
+
+[node name="Label_Score" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Score"
+horizontal_alignment = 1
+
+[node name="Label_NewHighScore" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+bbcode_enabled = true
+text = "[rainbow freq=1.0 sat=0.8 val=0.8 speed=1.0]New High Score![/rainbow]"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="Label_HighScore" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "High Score"
 horizontal_alignment = 1
 
 [node name="Button_Retry" type="Button" parent="CenterContainer/VBoxContainer"]
@@ -49,3 +73,7 @@ text = "Main Menu"
 [node name="Button_Quit" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button_Retry" to="." method="_on_button_retry_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button_MainMenu" to="." method="_on_button_main_menu_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button_Quit" to="." method="_on_button_quit_pressed"]
