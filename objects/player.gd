@@ -50,9 +50,11 @@ func movement_handler(delta): # Handles movement
 	if input_velocity.x > 0:
 		sprite.animation = "moving_side"
 		sprite.flip_h = false
+		$Sprite.position = Vector2(-8, -8)
 	elif input_velocity.x < 0:
 		sprite.animation = "moving_side"
 		sprite.flip_h = true
+		$Sprite.position = Vector2(8, -8)
 	elif input_velocity.y > 0:
 		sprite.animation = "moving_up"
 		sprite.flip_h = true
@@ -91,7 +93,7 @@ func movement_handler(delta): # Handles movement
 
 func _process(delta: float) -> void:
 	if isDrawing and player_perceived_speed > 1:
-		var comparison_value = 1 / (64 + pow(player_perceived_speed, 1.1)) # Good enough, might have problems if moves too fast, but technically not possible?
+		var comparison_value = 1 / (24 + pow(player_perceived_speed, 1.1)) # Good enough, might have problems if moves too fast, but technically not possible?
 		if deploy_counter < comparison_value: # How frequently does player place points down
 			deploy_counter += delta
 		else:

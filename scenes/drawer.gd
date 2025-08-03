@@ -7,7 +7,7 @@ var player_object : CharacterBody2D
 var drawing_line_array : Array[Vector2] = [] # Last position should be player pos
 var previous_size : int = 0 # For keeping track of previous location for intersection math
 var length : float = 0 # How long is the current line
-var max_line_length = 520 # What is the max length of the line
+var max_line_length = 1024 # What is the max length of the line
 #var holes : Dictionary  = {} # Collection 
 
 func _ready() -> void:
@@ -16,9 +16,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	$Label.text = str("Line length: ", snappedf(length, 0.1)) # DEBUG LINE
 	update_drawn_line()
-	if drawing_line_array.size() > 0: # If we have any points that form a line, draw it
-		pass
-		#queue_redraw()
+
 	if length > max_line_length: # Line max length logic
 		for deletion in range(floor(length / max_line_length)):
 			drawing_line_array.pop_front() # Remove point from front of the array (oldest point) 

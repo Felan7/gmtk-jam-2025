@@ -62,6 +62,7 @@ func die() -> void:
 		tween.set_parallel()
 		tween.tween_property(sprite, "scale", Vector2.ZERO, 2)
 		tween.tween_property(sprite, "rotation", -10, 2)
+		tween.tween_property(sprite, "self_modulate", Color(0.0, 0.0, 0.0, 0.0), 2)
 		tween.set_parallel(false)
 		tween.tween_callback(queue_free)
 
@@ -72,3 +73,8 @@ func die() -> void:
 		score_text_animation.position = position
 		score_text_animation.text = "+" + str(score_points)
 		get_tree().root.add_child(score_text_animation)
+
+func fall_into_hole(target_pos : Vector2):
+	print("target: ", target_pos, " /", global_position)
+	var tween_movement = create_tween()
+	tween_movement.tween_property(self, "global_position", target_pos, 2).set_trans(Tween.TRANS_QUAD)
