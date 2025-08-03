@@ -70,5 +70,6 @@ func spawn_enemy(enemy_type, times) -> void:
 		print("Spawning enemy: " + enemy_type + " Nr. " + str(i))
 		var enemy = load("res://scenes/enemies/" + enemy_type +".tscn").instantiate()
 		get_tree().root.add_child(enemy) # is this the proper way of doing things?
+		await get_tree().create_timer(1).timeout
 	spawn_index += 1
 	timer.start()
