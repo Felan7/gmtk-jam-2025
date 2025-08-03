@@ -25,7 +25,7 @@ func create_random_position(player_position : Vector2, player_view_distance) -> 
 		randf_range(MIN_X, MAX_X),
 		randf_range(MIN_Y, MAX_Y)
 	)
-	
+
 	if player_position.distance_to(random_position) < player_view_distance:
 		# move along
 		#var lacking_distance = player_view_distance - player_position.distance_to(random_position)

@@ -4,26 +4,26 @@
 [ext_resource type="Texture2D" uid="uid://bwv1krugeuyby" path="res://assets/art/SliderGrabber.png" id="1_gosun"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gosun"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
 content_margin_bottom = 2.0
 bg_color = Color(0.374139, 0.374139, 0.374139, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7faip"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
 content_margin_bottom = 2.0
 bg_color = Color(0.266575, 0.266575, 0.266575, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g26a8"]
 bg_color = Color(0.775063, 0.775063, 0.775063, 1)
@@ -56,6 +56,7 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 
 [resource]
 default_font = ExtResource("1_7faip")
+Button/font_sizes/font_size = 25
 Button/styles/hover = SubResource("StyleBoxFlat_gosun")
 Button/styles/normal = SubResource("StyleBoxFlat_7faip")
 Button/styles/pressed = SubResource("StyleBoxFlat_gosun")
