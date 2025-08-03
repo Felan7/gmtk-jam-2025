@@ -5,7 +5,7 @@ var player :CharacterBody2D = null
 
 var speed = 80
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if player:
 			velocity = position.direction_to(player.position) * speed
 			if player.position.x > position.x:
@@ -36,6 +36,6 @@ func _on_vison_area_2d_body_exited(body: Node2D) -> void:
 		sprite.animation = "scout"
 
 
-func _on_pounce_area_2d_body_entered(body: Node2D) -> void:
+func _on_pounce_area_2d_body_entered(_body: Node2D) -> void:
 	player_is_in_reach = true
 	sprite.animation = "pounce"

@@ -11,11 +11,11 @@ func _ready() -> void:
 func _on_h_slider_drag_started() -> void:
 	pass # Replace with function body.
 	
-func _on_h_slider_drag_ended(value_changed: bool) -> void:
+func _on_h_slider_drag_ended(_value_changed: bool) -> void:
 	slider_value = $HSlider.value
 	$HSlider.release_focus() # When we finish moving slider, release focus so we don't accidentally change it more
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		$AUDIO_BUS_NAME.text = bus_type
 	else:

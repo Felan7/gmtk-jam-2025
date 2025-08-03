@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b34r3bwe3rwar" path="res://assets/art/butterknife_fairy_down_spritesheet.png" id="6_i825w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ykyjo"]
+radius = 4.0
 
 [sub_resource type="Animation" id="Animation_uxov2"]
 length = 0.001
@@ -254,7 +255,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_ykyjo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -315,7 +316,6 @@ metadata/_custom_type_script = "uid://bhmka0jmw0uik"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mqnmn")
-animation = &"moving_up"
+animation = &"moving_down"
 autoplay = "moving_side"
-frame_progress = 0.700019
 offset = Vector2(-8, -8)

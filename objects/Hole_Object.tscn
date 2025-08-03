@@ -9,6 +9,7 @@ collision_mask = 54
 script = ExtResource("1_wnscf")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+disabled = true
 
 [node name="Polygon2D" type="Polygon2D" parent="CollisionPolygon2D"]
 z_index = -1

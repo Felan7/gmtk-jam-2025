@@ -4,7 +4,7 @@ extends Control
 var optionsVisible : bool = false
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	$OPTIONS.visible = optionsVisible
 
 func _on_button_quit_pressed() -> void:

@@ -7,9 +7,9 @@ extends CharacterBody2D
 # - Can die
 
 # --- Player variables --- #
-var SPEED : float = 300 # How fast player character moves
-var ACCELERATION : float = 0.1 # How quickly player accelerates
-var DEACCELERATION : float = 0.5 # How quickly player slows down
+var SPEED : float = 180 # How fast player character moves
+var ACCELERATION : float = 0.4 # How quickly player accelerates
+var DEACCELERATION : float = 0.8 # How quickly player slows down
 
 
 var isDrawing : bool = false # Is player currently drawing a line
@@ -118,3 +118,7 @@ func visual_handler(): # Handles visual effects and animations
 
 func _destroy(): # Character dies, might trigger special behaviour
 	queue_free()
+
+func die():
+	_destroy()
+	get_parent().game_over()
