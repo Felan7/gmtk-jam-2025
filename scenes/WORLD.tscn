@@ -54,6 +54,8 @@ editor_draw_limits = true
 
 [node name="UserInterface" parent="Camera2D/CanvasLayer" instance=ExtResource("3_ayg7v")]
 
+[node name="StartScreen" parent="Camera2D/CanvasLayer" instance=ExtResource("8_njbdt")]
+
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_km3x0")]
 
 [node name="MAP_BG" type="NinePatchRect" parent="."]
@@ -103,5 +105,3 @@ rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_t3haj")
 
 [node name="ENEMY_CONTAINER" type="Node2D" parent="." groups=["enemy_container"]]
-
-[node name="StartScreen" parent="." instance=ExtResource("8_njbdt")]

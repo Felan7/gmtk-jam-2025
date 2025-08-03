@@ -37,7 +37,7 @@ func create_random_position(player_position : Vector2, player_view_distance) -> 
 		## check if out of bounds
 		#if random_position.x > MAX_X or random_position.x < MIN_X or random_position.y > MAX_Y or random_position.y < MIN_Y:
 			# try again
-			
+
 	if relocation_needed:
 		#print("NEEDED TO RELOCATE CAT")
 		return create_random_position(player_position, player_view_distance)

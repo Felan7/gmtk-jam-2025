@@ -74,7 +74,7 @@ func load_wave():
 func _on_timer_timeout() -> void:
 	if spawn_index < enemies_in_wave:
 		spawn_enemy(current_wave["enemies"][spawn_index]["type"],current_wave["enemies"][spawn_index]["count"])
-		
+
 	else:
 		print("Finished spawning wave.")
 
