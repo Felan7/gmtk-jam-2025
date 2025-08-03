@@ -16,8 +16,8 @@ var audio_SFX_volume : int = 50
 # Audio_busses: "Master", "MUSIC", "SFX" (Master  is only one that is not capitalized)
 
 var audio_list = { # Contains all audio files. Use the following order ["preload path", "type", "looping?", "volume adjust"]
-	"8bit_bossa": [preload("res://assets/audio/8bit Bossa.mp3"), "MUSIC", true, -6.0],
-	
+	#"8bit_bossa": [preload("res://assets/audio/8bit Bossa.mp3"), "MUSIC", true, -6.0],
+	"moreWhimsey": [preload("res://assets/audio/moreWhimpsey.wav"), "MUSIC", true, -6.0]
 	# example > name: [preload(<PATH>), "Master", loop : bool, volume_adjust : float]
 }
 
