@@ -59,15 +59,15 @@ var sfx_timer: SceneTreeTimer
 
 
 func _get_property_list() -> Array:
-    return SfxrStreamPlayerInterface.object_get_property_list()
+	return SfxrStreamPlayerInterface.object_get_property_list()
 
 
 func _get(property):
-    return SfxrStreamPlayerInterface.object_get(self, property)
+	return SfxrStreamPlayerInterface.object_get(self, property)
 
 
 func _set(property, value) -> bool:
-    return SfxrStreamPlayerInterface.object_set(self, property, value)
+	return SfxrStreamPlayerInterface.object_set(self, property, value)
 
 
 ##################################
@@ -76,15 +76,15 @@ func _set(property, value) -> bool:
 
 
 func _init():
-    SfxrStreamPlayerInterface.object_set_defaults(self)
+	SfxrStreamPlayerInterface.object_set_defaults(self)
 
 
 func property_can_revert(property: StringName):
-    return SfxrStreamPlayerInterface.object_property_can_revert(property)
+	return SfxrStreamPlayerInterface.object_property_can_revert(property)
 
 
 func property_get_revert(property: StringName):
-    return SfxrStreamPlayerInterface.object_property_get_revert(property)
+	return SfxrStreamPlayerInterface.object_property_get_revert(property)
 
 
 ##################################
@@ -93,11 +93,11 @@ func property_get_revert(property: StringName):
 
 
 func random_preset() -> bool:
-    return SfxrStreamPlayerInterface.random_preset(self)
+	return SfxrStreamPlayerInterface.random_preset(self)
 
 
 func preset_values(preset_key: int) -> bool:
-    return SfxrStreamPlayerInterface.preset_values(self, preset_key)
+	return SfxrStreamPlayerInterface.preset_values(self, preset_key)
 
 
 ##################################
@@ -106,14 +106,14 @@ func preset_values(preset_key: int) -> bool:
 
 
 func _on_sfx_timer_timeout(timer: SceneTreeTimer, play_after_build: bool):
-    SfxrStreamPlayerInterface._on_sfx_timer_timeout(self, timer, play_after_build)
+	SfxrStreamPlayerInterface._on_sfx_timer_timeout(self, timer, play_after_build)
 
 
 func build_sfx(play_after_build: bool = false):
-    SfxrStreamPlayerInterface.build_sfx(self, play_after_build)
+	SfxrStreamPlayerInterface.build_sfx(self, play_after_build)
 
 
 func play(from_position: float = 0.0):
-    if playing:
-        stop()
-    super.play(from_position)
+	if playing:
+		stop()
+	super.play(from_position)
