@@ -9,33 +9,27 @@ var enemies_in_wave : int = INF
 
 const wave_array = [
 	{"enemies" : [
+		{"type" :"potted_plant", "count" : 20}],
+	"bonus" : 1,
+	"score_target" : 3},
+	{"enemies" : [
+		{"type" :"potted_plant", "count" : 10},
+		{"type" :"snail", "count" : 10},
+		{"type" :"squirrel", "count" : 10}],
+	"bonus" : 10,
+	"score_target" : 20},
+	{"enemies" : [
+		{"type" :"squirrel", "count" : 30},],
+	"bonus" : 15,
+	"score_target" : 25},
+	{"enemies" : [
 		{"type" :"cat", "count" : 10},
 		{"type" :"brown_cat", "count" : 10},
 		{"type" :"chocolate_cat", "count" : 10},
 		{"type" :"white_cat", "count" : 10}],
 	"bonus" : 25,
-	"score_target" : 10},
-	{"enemies" : [
-		{"type" :"potted_plant", "count" : 10},
-		{"type" :"snail", "count" : 10},
-		{"type" :"potted_plant", "count" : 1000},
-		{"type" :"snail", "count" : 9000},
-		{"type" :"potted_plant", "count" : 1000},
-		{"type" :"snail", "count" : 9000},
-		{"type" :"squirrel", "count" : 10}],
-	"bonus" : 25,
-	"score_target" : 10},
-	{"enemies" : [
-		{"type" :"squirrel", "count" : 10},
-		{"type" :"squirrel", "count" : 10},
-		{"type" :"squirrel", "count" : 10}],
-	"bonus" : 25,
-	"score_target" : 10},
-	{"enemies" : [
-		{"type" :"cat", "count" : 30},
-		],
-	"bonus" : 25,
-	"score_target" : 10}
+	"score_target" : 100},
+
 ]
 
 func _ready() -> void:
@@ -89,4 +83,3 @@ func spawn_enemy(enemy_type, times) -> void:
 		await get_tree().process_frame # Wait one frame when spawning each time
 	spawn_index += 1
 	timer.start()
-	
