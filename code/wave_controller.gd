@@ -89,3 +89,4 @@ func spawn_enemy(enemy_type, times) -> void:
 		await get_tree().process_frame # Wait one frame when spawning each time
 	spawn_index += 1
 	timer.start()
+	

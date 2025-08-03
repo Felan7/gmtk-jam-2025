@@ -257,5 +257,5 @@ metadata/_custom_type_script = "uid://bhmka0jmw0uik"
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(-8, -8)
 sprite_frames = SubResource("SpriteFrames_mqnmn")
-animation = &"moving_side"
+animation = &"moving_up"
 autoplay = "moving_side"

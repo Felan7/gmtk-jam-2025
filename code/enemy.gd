@@ -46,7 +46,7 @@ func create_random_position(player_position : Vector2, player_view_distance) -> 
 
 
 func die() -> void:
-	if not $VisibleOnScreenNotifier2D.is_on_screen(): # When it dies, if it's not on screen, spawn a new one without death sound or score incrementing
+	if not $VisibleOnScreenNotifier2D.is_on_screen() and global_position.distance_to(get_tree().get_first_node_in_group("Player").global_position) > 320: # When it dies, if it's not on screen, spawn a new one without death sound or score incrementing
 		get_tree().get_first_node_in_group("wave_controller").spawn_enemy(enemy_type, 1)
 		print("Enemy respawning as got spawn camped at ", global_position)
 		queue_free()
