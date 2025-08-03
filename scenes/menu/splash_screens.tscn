@@ -3,8 +3,8 @@
 [ext_resource type="Theme" uid="uid://4fkci148rrkp" path="res://scenes/menu/user_interface_theme.tres" id="1_7dgi7"]
 [ext_resource type="Script" uid="uid://xh6nvvmo3lyi" path="res://code/splash_screens.gd" id="1_wbuac"]
 [ext_resource type="PackedScene" uid="uid://bn1wocoog5stp" path="res://scenes/menu/main_menu.tscn" id="2_7dgi7"]
-[ext_resource type="Texture2D" uid="uid://bub7reudti20u" path="res://assets/art/icon.svg" id="4_506v8"]
 [ext_resource type="Texture2D" uid="uid://da12q10upccv" path="res://assets/art/splashscreen_spielwerker.png" id="4_kskso"]
+[ext_resource type="Texture2D" uid="uid://dsryxas0lbqsm" path="res://assets/art/butterknife_fairy_still.png" id="4_v1ql0"]
 [ext_resource type="Texture2D" uid="uid://dkbv8y76uupto" path="res://assets/art/godot_logo_pixelized.png" id="5_506v8"]
 [ext_resource type="PackedScene" uid="uid://c7nsgh4nklawq" path="res://scenes/menu/controls.tscn" id="7_v1ql0"]
 
@@ -35,9 +35,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="Screens/Screen_GameLogo"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Screens/Screen_GameLogo"]
 layout_mode = 2
-texture = ExtResource("4_506v8")
+
+[node name="TextureRect" type="TextureRect" parent="Screens/Screen_GameLogo/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_v1ql0")
+expand_mode = 4
+
+[node name="Label" type="Label" parent="Screens/Screen_GameLogo/VBoxContainer"]
+layout_mode = 2
+text = "HOLEY GROUND"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Screens/Screen_GameLogo/VBoxContainer"]
+layout_mode = 2
+text = "A backyard robbery"
+horizontal_alignment = 1
 
 [node name="Screen_Spielwerker" type="Control" parent="Screens"]
 visible = false
