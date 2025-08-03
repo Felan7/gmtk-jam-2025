@@ -1,17 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://coou8b1gt10l2"]
+[gd_scene load_steps=10 format=3 uid="uid://coou8b1gt10l2"]
 
 [ext_resource type="Script" uid="uid://nmylplscpmtv" path="res://scenes/world.gd" id="1_vem1d"]
 [ext_resource type="Script" uid="uid://dkqd5imkwxhne" path="res://scenes/drawer.gd" id="2_ayg7v"]
 [ext_resource type="PackedScene" uid="uid://di0h7kj0csh81" path="res://objects/player.tscn" id="2_km3x0"]
 [ext_resource type="PackedScene" uid="uid://ddcbfvxjqyycb" path="res://scenes/menu/user_interface.tscn" id="3_ayg7v"]
+[ext_resource type="Texture2D" uid="uid://dkbv8y76uupto" path="res://assets/art/godot_logo_pixelized.png" id="3_ycx3t"]
 [ext_resource type="PackedScene" uid="uid://bvbkb8ydj0qph" path="res://scenes/enemies/wave_controller.tscn" id="5_t3haj"]
+[ext_resource type="Texture2D" uid="uid://bqfnv0hmte840" path="res://assets/art/TIleset.png" id="6_ardj1"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ayg7v"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t3haj"]
-width = 1024
-height = 1024
-noise = SubResource("FastNoiseLite_ayg7v")
+[sub_resource type="Curve" id="Curve_ardj1"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 0.6), 0.0, 0.0, 0, 0, Vector2(0.2, 0.3), 0.0, 0.0, 0, 0, Vector2(0.3, 0.7), 0.0, 0.0, 0, 0, Vector2(0.5, 0.4), 0.0, 0.0, 0, 0, Vector2(0.7, 0.7), 0.0, 0.0, 0, 0, Vector2(0.8, 0.4), 0.0, 0.0, 0, 0, Vector2(0.9, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 9
+metadata/_snap_enabled = true
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t3haj"]
 
@@ -28,6 +28,18 @@ offset_top = 26.0
 offset_right = 44.0
 offset_bottom = 49.0
 
+[node name="Cut_Line" type="Line2D" parent="LineDrawer"]
+points = PackedVector2Array(10, 50, 200, 50, 200, 80, 144, 94, 59, 66)
+width = 6.0
+width_curve = SubResource("Curve_ardj1")
+default_color = Color(0.81, 0.53055, 0.2511, 1)
+texture = ExtResource("3_ycx3t")
+texture_mode = 1
+joint_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+round_precision = 1
+
 [node name="HOLES" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -43,14 +55,20 @@ editor_draw_limits = true
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_km3x0")]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-self_modulate = Color(1, 1, 1, 0.25098)
+[node name="MAP_BG" type="NinePatchRect" parent="."]
+self_modulate = Color(0.8, 0.8, 0.8, 1)
 z_index = -99
 offset_left = -1024.0
 offset_top = -1024.0
 offset_right = 1024.0
 offset_bottom = 1024.0
-texture = SubResource("NoiseTexture2D_t3haj")
+texture = ExtResource("6_ardj1")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="WaveController" parent="." instance=ExtResource("5_t3haj")]
 

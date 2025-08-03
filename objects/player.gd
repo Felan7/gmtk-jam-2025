@@ -76,8 +76,8 @@ func movement_handler(delta): # Handles movement
 
 func _process(delta: float) -> void:
 	if isDrawing and player_perceived_speed > 1:
-		var comparison_value = 1 / (16 + pow(player_perceived_speed, 1.1)) # Good enough, might have problems if moves too fast, but technically not possible?
-		if deploy_counter < comparison_value:
+		var comparison_value = 1 / (64 + pow(player_perceived_speed, 1.1)) # Good enough, might have problems if moves too fast, but technically not possible?
+		if deploy_counter < comparison_value: # How frequently does player place points down
 			deploy_counter += delta
 		else:
 			deploy_counter = 0

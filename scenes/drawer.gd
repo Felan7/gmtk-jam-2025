@@ -2,28 +2,34 @@ extends Node2D
 # line drawing object - test
 
 var player_object : CharacterBody2D
+@onready var cut_line: Line2D = $Cut_Line
 
 var drawing_line_array : Array[Vector2] = [] # Last position should be player pos
-var previous_size : int = 0
-var length : float = 0
-var max_line_length = 520
-var holes : Dictionary  = {}
+var previous_size : int = 0 # For keeping track of previous location for intersection math
+var length : float = 0 # How long is the current line
+var max_line_length = 520 # What is the max length of the line
+#var holes : Dictionary  = {} # Collection 
 
 func _ready() -> void:
 	player_object = get_tree().get_first_node_in_group("Player")
 
 func _physics_process(_delta: float) -> void:
-	$Label.text = str("Line length: ", snappedf(length, 0.1))
+	$Label.text = str("Line length: ", snappedf(length, 0.1)) # DEBUG LINE
+	update_drawn_line()
 	if drawing_line_array.size() > 0: # If we have any points that form a line, draw it
-		queue_redraw()
-	if length > max_line_length:
+		pass
+		#queue_redraw()
+	if length > max_line_length: # Line max length logic
 		for deletion in range(floor(length / max_line_length)):
-			drawing_line_array.pop_front()
-	calculate_length()
-	#print(length)#drawing_line_array.size())
-	if previous_size != drawing_line_array.size():
+			drawing_line_array.pop_front() # Remove point from front of the array (oldest point) 
+			
+	if previous_size != drawing_line_array.size(): # If there was a change in position count, check if it intersects
 		calculate_intersections()
 	previous_size = drawing_line_array.size()
+	calculate_length()
+
+func update_drawn_line():
+	cut_line.points = drawing_line_array
 
 func _clear_lines():
 	drawing_line_array.clear()
@@ -35,14 +41,14 @@ func _draw() -> void:
 		if player_object.isDrawing and drawing_line_array.size() > 0:
 			draw_line(drawing_line_array[drawing_line_array.size() - 1], player_object.global_position, Color.RED, 3)
 	
-	
+	""" # Debug hole drawing - first holes
 	for hole_names in holes.keys():
 		var hole_candinate = holes[hole_names]
 		for data_pos in range(hole_candinate.size() - 1):
 			draw_line(hole_candinate[data_pos], hole_candinate[data_pos + 1], Color.PURPLE, 6)
 		draw_line(hole_candinate[0], hole_candinate[hole_candinate.size() - 1], Color.PURPLE, 6)
-	
-func calculate_length():
+	"""
+func calculate_length(): # Calculates the length of the line from array positions
 	length = 0
 	for dot_pos in range(drawing_line_array.size()):
 		if dot_pos != 0 and dot_pos != (drawing_line_array.size() - 1):
@@ -67,7 +73,7 @@ func calculate_intersections(): # Calculates if last drawn line intersects with 
 		var p1 = positions[i] 
 		var p2 = positions[i + 1] # Point pair A
 		
-		for j in range(positions.size() - 2, positions.size() - 1):
+		for j in range(clampi(positions.size() - 2, 0, positions.size()), positions.size() - 1):
 			# pair B
 			var p3 = positions[j]
 			var p4 = positions[j + 1] # Point pair B

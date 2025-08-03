@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bhmka0jmw0uik" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="3_38ino"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_38ino"]
-size = Vector2(16, 16)
+size = Vector2(8, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_38ino"]
 animations = [{
