@@ -24,7 +24,8 @@ func _physics_process(_delta: float) -> void:
 			drawing_line_array.pop_front() # Remove point from front of the array (oldest point) 
 			
 	if previous_size != drawing_line_array.size(): # If there was a change in position count, check if it intersects
-		calculate_intersections()
+		if check_line_segment_angles() < 0.99:
+			calculate_intersections()
 	previous_size = drawing_line_array.size()
 	calculate_length()
 
@@ -115,6 +116,16 @@ func are_lines_intersecting(a : Vector2, b : Vector2, c : Vector2, d : Vector2):
 		
 	return (r >= 0 && r <= 1) && (s >= 0 && s <= 1)
 	
-func check_line_segment_angles():
+func check_line_segment_angles() -> float:
+	# Check if all lines are angled similarly. If are, don't check intersecting
+	# - Get lines and loop through lines
+	var positions = drawing_line_array # Save positions for local use
+	var sum_dot : float = 0
+	var average_dot : float = 0
 	
-	pass
+	for pointer in range(positions.size() - 3):
+		var line_A : Vector2 = (positions[pointer + 1] - positions[pointer]).normalized()
+		var line_B : Vector2 = (positions[pointer + 3] - positions[pointer + 2]).normalized()
+		sum_dot += line_B.dot(line_A)
+		average_dot = sum_dot / (pointer + 1)
+	return average_dot
