@@ -7,8 +7,13 @@ extends Node2D
 var inputted_key = ""
 
 func _process(_delta: float) -> void:
-	camera_2d.global_position = player.global_position
+	if player:
+		camera_2d.global_position = player.global_position
 
 func _ready() -> void:
+	$Camera2D/CanvasLayer/GameOverScreen.visible = false
 	await get_tree().create_timer(0.25).timeout
 	AudioMaster.play_audio("moreWhimsey")
+
+func game_over():
+	$Camera2D/CanvasLayer/GameOverScreen.visible = true

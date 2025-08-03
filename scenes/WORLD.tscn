@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://coou8b1gt10l2"]
+[gd_scene load_steps=15 format=3 uid="uid://coou8b1gt10l2"]
 
 [ext_resource type="Script" uid="uid://nmylplscpmtv" path="res://scenes/world.gd" id="1_vem1d"]
 [ext_resource type="Script" uid="uid://dkqd5imkwxhne" path="res://scenes/drawer.gd" id="2_ayg7v"]
 [ext_resource type="PackedScene" uid="uid://di0h7kj0csh81" path="res://objects/player.tscn" id="2_km3x0"]
+[ext_resource type="Texture2D" uid="uid://boq12w2hny6fu" path="res://assets/art/HoleTile.png" id="3_ardj1"]
 [ext_resource type="PackedScene" uid="uid://ddcbfvxjqyycb" path="res://scenes/menu/user_interface.tscn" id="3_ayg7v"]
-[ext_resource type="Texture2D" uid="uid://b56mgundnmwbi" path="res://assets/art/space.png" id="3_njbdt"]
+[ext_resource type="PackedScene" uid="uid://duhugmjoo5mlq" path="res://scenes/menu/game_over_screen.tscn" id="4_82gsp"]
 [ext_resource type="PackedScene" uid="uid://bvbkb8ydj0qph" path="res://scenes/enemies/wave_controller.tscn" id="5_t3haj"]
 [ext_resource type="Texture2D" uid="uid://bqfnv0hmte840" path="res://assets/art/TIleset.png" id="6_ardj1"]
 [ext_resource type="PackedScene" uid="uid://uiqdtt0a352b" path="res://scenes/menu/start_screen.tscn" id="8_njbdt"]
@@ -102,7 +103,8 @@ autoplay = "default"
 points = PackedVector2Array(16, -91)
 width = 6.0
 width_curve = SubResource("Curve_ardj1")
-texture = ExtResource("3_njbdt")
+default_color = Color(1, 0.655, 0.31, 1)
+texture = ExtResource("3_ardj1")
 texture_mode = 1
 joint_mode = 1
 begin_cap_mode = 2
@@ -124,15 +126,18 @@ editor_draw_limits = true
 
 [node name="StartScreen" parent="Camera2D/CanvasLayer" instance=ExtResource("8_njbdt")]
 
-[node name="Player" parent="." groups=["Player"] instance=ExtResource("2_km3x0")]
+[node name="GameOverScreen" parent="Camera2D/CanvasLayer" instance=ExtResource("4_82gsp")]
+
+[node name="Player" parent="." instance=ExtResource("2_km3x0")]
 
 [node name="MAP_BG" type="NinePatchRect" parent="."]
 self_modulate = Color(0.8, 0.8, 0.8, 1)
 z_index = -99
 offset_left = -1024.0
 offset_top = -1024.0
-offset_right = 1024.0
-offset_bottom = 1024.0
+offset_right = -204.8
+offset_bottom = -204.8
+scale = Vector2(2.5, 2.5)
 texture = ExtResource("6_ardj1")
 patch_margin_left = 16
 patch_margin_top = 16
