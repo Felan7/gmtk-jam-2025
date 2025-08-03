@@ -64,7 +64,7 @@ func movement_handler(delta): # Handles movement
 		sprite.animation = "moving_down"
 		sprite.flip_h = false
 		sprite.position.x = 0.0
-	
+
 	velocity += impulse_velocity
 	if input_velocity.length() > 0:
 		velocity = lerp(velocity, input_velocity.normalized() * SPEED * delta, 0.1)
@@ -75,7 +75,7 @@ func movement_handler(delta): # Handles movement
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, 0.1)
 		sfx_cutting.playing = false
-	
+
 	if impulse_velocity.length() >= 100:
 		impulse_velocity = impulse_velocity / 4
 	elif impulse_velocity.length() < 100:
