@@ -10,10 +10,12 @@ func create_hole(array_data : PackedVector2Array): # Creates a hole object
 	$CollisionPolygon2D/Polygon2D/Line2D.points = array_data
 	activate_hole()
 
+func _ready() -> void:
+	$SfxrStreamPlayer2D.pitch_scale = randf_range(0.6, 1.5)
 
 ## Add functionality of "hole creation" where it has that 1 second section where hole appears and after that it becomes active
 func activate_hole():
-	
+
 	pass
 ## Add functionality where an object enters this "hole". It just tells the object "you stepped into a hole
 # INSERT SIGNAL

@@ -22,6 +22,9 @@ var player_perceived_speed : float = 0 # Player perceived speed
 
 var mouse_control : bool = false
 
+@onready var sfx_cutting: AudioStreamPlayer2D = $SfxrStreamPlayer2D
+
+
 func _ready() -> void:
 	#$AnimationPlayer.play("rotate")
 	pass
@@ -46,6 +49,7 @@ func movement_handler(delta): # Handles movement
 		velocity = lerp(velocity, input_velocity.normalized() * SPEED * delta, 0.1)
 		if isDrawing:
 			particles.emitting = true
+
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, 0.1)
 
@@ -61,9 +65,11 @@ func movement_handler(delta): # Handles movement
 		if not isDrawing:
 			get_tree().get_first_node_in_group("LineDrawer")._clear_lines()
 		isDrawing = true
+		sfx_cutting.playing = true
 
 	if Input.is_action_just_released("input_draw_line"):
 		isDrawing = false
+		sfx_cutting.playing = false
 		#AudioMaster.play_audio("8bit_bossa")
 
 	## Maybe make making dots happen on process and drawing/update speed depends on character speed? (faster movement, more frequent updates?)

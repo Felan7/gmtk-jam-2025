@@ -2,9 +2,9 @@
 
 [ext_resource type="Theme" uid="uid://4fkci148rrkp" path="res://scenes/menu/user_interface_theme.tres" id="1_247la"]
 [ext_resource type="Script" uid="uid://48jg32iix0a5" path="res://code/main_menu.gd" id="1_nl8w3"]
-[ext_resource type="Texture2D" uid="uid://bub7reudti20u" path="res://assets/art/icon.svg" id="2_3rkf3"]
 [ext_resource type="PackedScene" uid="uid://bt64ym4yk5cr0" path="res://objects/audio_slider.tscn" id="3_247la"]
 [ext_resource type="PackedScene" uid="uid://coou8b1gt10l2" path="res://scenes/WORLD.tscn" id="3_hj162"]
+[ext_resource type="Texture2D" uid="uid://dsryxas0lbqsm" path="res://assets/art/butterknife_fairy_still.png" id="4_hj162"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -30,7 +30,8 @@ layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_3rkf3")
+texture = ExtResource("4_hj162")
+expand_mode = 5
 
 [node name="Button_Start" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -45,6 +46,7 @@ layout_mode = 2
 text = "Quit"
 
 [node name="OPTIONS" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
