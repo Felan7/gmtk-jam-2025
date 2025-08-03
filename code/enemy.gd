@@ -11,7 +11,6 @@ var score_text_animation_scene : PackedScene = preload("res://scenes/menu/score_
 var is_dying : bool = false
 
 func _ready() -> void:
-	pass
 	# move out of view
 	position = create_random_position(get_tree().get_first_node_in_group("Player").position, 300)
 
@@ -26,6 +25,7 @@ func create_random_position(player_position : Vector2, player_view_distance) -> 
 		randf_range(MIN_X, MAX_X),
 		randf_range(MIN_Y, MAX_Y)
 	)
+	
 	if player_position.distance_to(random_position) < player_view_distance:
 		# move along
 		#var lacking_distance = player_view_distance - player_position.distance_to(random_position)

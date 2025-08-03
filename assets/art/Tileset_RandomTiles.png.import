@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqv6jt78hl1vd"
-path="res://.godot/imported/Cat_FullSpritesheet_Gray.png-4aed2657622146fa875e9fa1dcd62079.ctex"
+uid="uid://cfhtusscck2aq"
+path="res://.godot/imported/Tileset_RandomTiles.png-470a3f862fe055bfd6e54cca9147f9b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/Cat_FullSpritesheet_Gray.png"
-dest_files=["res://.godot/imported/Cat_FullSpritesheet_Gray.png-4aed2657622146fa875e9fa1dcd62079.ctex"]
+source_file="res://assets/art/Tileset_RandomTiles.png"
+dest_files=["res://.godot/imported/Tileset_RandomTiles.png-470a3f862fe055bfd6e54cca9147f9b5.ctex"]
 
 [params]
 

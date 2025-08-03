@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://voc1es362dni"]
 
 [ext_resource type="PackedScene" uid="uid://d3jcti4c5j7nh" path="res://scenes/enemies/cat.tscn" id="1_yajq7"]
-[ext_resource type="Texture2D" uid="uid://dn3tpode72q4" path="res://assets/art/Cat_FullSpritesheet_Chocolate.png" id="2_8ur8q"]
+[ext_resource type="Texture2D" uid="uid://c7uoovt1gubqh" path="res://assets/art/Cat_FullSpritesheet_Chocolate.png" id="2_8ur8q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t2jr1"]
 atlas = ExtResource("2_8ur8q")

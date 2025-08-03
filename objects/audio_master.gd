@@ -21,7 +21,7 @@ var audio_list = { # Contains all audio files. Use the following order ["preload
 	# example > name: [preload(<PATH>), "Master", loop : bool, volume_adjust : float]
 }
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("debug_end"):
 		print(">>>DEBUG INPUT, Shift+End => Killing all audio!")
 		kill_audio()

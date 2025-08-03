@@ -41,6 +41,7 @@ audio_master=""
 audio_sfx=""
 audio=""
 HOLE_ENTITY=""
+enemy_container=""
 
 [input]
 
@@ -112,6 +113,7 @@ debug_4={
 2d_physics/layer_3="enemies"
 2d_physics/layer_4="hole"
 2d_physics/layer_5="items"
+2d_physics/layer_6="trigger"
 
 [rendering]
 

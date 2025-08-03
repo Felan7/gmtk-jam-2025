@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://nmylplscpmtv" path="res://scenes/world.gd" id="1_vem1d"]
 [ext_resource type="Script" uid="uid://dkqd5imkwxhne" path="res://scenes/drawer.gd" id="2_ayg7v"]
 [ext_resource type="PackedScene" uid="uid://di0h7kj0csh81" path="res://objects/player.tscn" id="2_km3x0"]
+[ext_resource type="Texture2D" uid="uid://boq12w2hny6fu" path="res://assets/art/HoleTile.png" id="3_ardj1"]
 [ext_resource type="PackedScene" uid="uid://ddcbfvxjqyycb" path="res://scenes/menu/user_interface.tscn" id="3_ayg7v"]
-[ext_resource type="Texture2D" uid="uid://dkbv8y76uupto" path="res://assets/art/godot_logo_pixelized.png" id="3_ycx3t"]
 [ext_resource type="PackedScene" uid="uid://bvbkb8ydj0qph" path="res://scenes/enemies/wave_controller.tscn" id="5_t3haj"]
 [ext_resource type="Texture2D" uid="uid://bqfnv0hmte840" path="res://assets/art/TIleset.png" id="6_ardj1"]
 
@@ -33,7 +33,7 @@ points = PackedVector2Array(10, 50, 200, 50, 200, 80, 144, 94, 59, 66)
 width = 6.0
 width_curve = SubResource("Curve_ardj1")
 default_color = Color(0.81, 0.53055, 0.2511, 1)
-texture = ExtResource("3_ycx3t")
+texture = ExtResource("3_ardj1")
 texture_mode = 1
 joint_mode = 1
 begin_cap_mode = 2
@@ -43,6 +43,7 @@ round_precision = 1
 [node name="HOLES" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.15, 0.15)
 limit_left = -1024
 limit_top = -1024
 limit_right = 1024
@@ -100,3 +101,5 @@ rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D4"]
 shape = SubResource("WorldBoundaryShape2D_t3haj")
+
+[node name="ENEMY_CONTAINER" type="Node2D" parent="." groups=["enemy_container"]]
