@@ -9,8 +9,6 @@ var enemies_in_wave : int = INF
 
 const wave_array = [
 	{"enemies" : [
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 		{"type" :"cat", "count" : 10},
 		{"type" :"brown_cat", "count" : 10},
 		{"type" :"chocolate_cat", "count" : 10},
@@ -20,14 +18,10 @@ const wave_array = [
 	{"enemies" : [
 		{"type" :"potted_plant", "count" : 10},
 		{"type" :"snail", "count" : 10},
-=======
 		{"type" :"potted_plant", "count" : 1000},
 		{"type" :"snail", "count" : 9000},
->>>>>>> Stashed changes
-=======
 		{"type" :"potted_plant", "count" : 1000},
 		{"type" :"snail", "count" : 9000},
->>>>>>> Stashed changes
 		{"type" :"squirrel", "count" : 10}],
 	"bonus" : 25,
 	"score_target" : 10},
@@ -88,19 +82,13 @@ func spawn_enemy(enemy_type, times) -> void:
 	for i in range(0, times):
 		print("Spawning enemy: " + enemy_type + " Nr. " + str(i))
 		var enemy = load("res://scenes/enemies/" + enemy_type +".tscn").instantiate()
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 		get_tree().root.add_child(enemy) # is this the proper way of doing things?
 		await get_tree().create_timer(0.1).timeout
-=======
 		get_tree().get_first_node_in_group("enemy_container").add_child(enemy) # Better way as we want to know where the enemies are and not spawn them inside the "main menu"
 		# get_tree().root.add_child(enemy) # is this the proper way of doing things?
 		await get_tree().process_frame # Wait one frame when spawning each time
->>>>>>> Stashed changes
-=======
 		get_tree().get_first_node_in_group("enemy_container").add_child(enemy) # Better way as we want to know where the enemies are and not spawn them inside the "main menu"
 		# get_tree().root.add_child(enemy) # is this the proper way of doing things?
 		await get_tree().process_frame # Wait one frame when spawning each time
->>>>>>> Stashed changes
 	spawn_index += 1
 	timer.start()
