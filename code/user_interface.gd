@@ -20,9 +20,8 @@ func update_score() -> void:
 
 
 func update_level() -> void:
-	var level = 1
 	var target = Global.target
-	label_level.text = str(level)
+	label_level.text = str(Global.level)
 	label_target.text = str(target)
 	progress_bar.min_value = progress_bar.max_value
 	progress_bar.max_value = target

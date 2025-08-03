@@ -1,0 +1,116 @@
+[gd_scene load_steps=16 format=3 uid="uid://voc1es362dni"]
+
+[ext_resource type="PackedScene" uid="uid://d3jcti4c5j7nh" path="res://scenes/enemies/cat.tscn" id="1_yajq7"]
+[ext_resource type="Texture2D" uid="uid://dn3tpode72q4" path="res://assets/art/Cat_FullSpritesheet_Chocolate.png" id="2_8ur8q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2jr1"]
+atlas = ExtResource("2_8ur8q")
+region = Rect2(440, 0, 40, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y46b"]
+atlas = ExtResource("2_8ur8q")
+region = Rect2(240, 0, 40, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r50xk"]
+atlas = ExtResource("2_8ur8q")
+region = Rect2(280, 0, 40, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7pf6"]
+atlas = ExtResource("2_8ur8q")
+region = Rect2(320, 0, 40, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mr82"]
+atlas = ExtResource("2_8ur8q")
+region = Rect2(360, 0, 40, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upref"]
+atlas = ExtResource("2_8ur8q")
+region = Rect2(160, 0, 40, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2m05"]
+atlas = ExtResource("2_8ur8q")
+region = Rect2(200, 0, 40, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uoxmr"]
+atlas = ExtResource("2_8ur8q")
+region = Rect2(400, 0, 40, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh777"]
+atlas = ExtResource("2_8ur8q")
+region = Rect2(0, 0, 40, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xg03g"]
+atlas = ExtResource("2_8ur8q")
+region = Rect2(40, 0, 40, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mvvb"]
+atlas = ExtResource("2_8ur8q")
+region = Rect2(80, 0, 40, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quwi7"]
+atlas = ExtResource("2_8ur8q")
+region = Rect2(120, 0, 40, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1lyyx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2jr1")
+}],
+"loop": true,
+"name": &"dying",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y46b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r50xk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7pf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mr82")
+}],
+"loop": true,
+"name": &"pounce",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upref")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2m05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uoxmr")
+}],
+"loop": true,
+"name": &"prowl",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh777")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xg03g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mvvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quwi7")
+}],
+"loop": true,
+"name": &"scout",
+"speed": 2.0
+}]
+
+[node name="ChocolateCat" instance=ExtResource("1_yajq7")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_1lyyx")
