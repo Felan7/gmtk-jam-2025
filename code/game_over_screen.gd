@@ -1,6 +1,5 @@
 extends Control
 
-@export var start_scene : PackedScene
 @export var menu_scene : PackedScene
 
 
@@ -9,7 +8,8 @@ func _on_button_quit_pressed() -> void:
 
 
 func _on_button_retry_pressed() -> void:
-	get_tree().change_scene_to_packed(start_scene)
+	AudioMaster.kill_audio("")
+	get_tree().reload_current_scene()
 
 
 func _on_button_main_menu_pressed() -> void:
