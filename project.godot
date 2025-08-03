@@ -26,6 +26,10 @@ window/size/viewport_width=320
 window/size/viewport_height=240
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_sfxr/plugin.cfg")
+
 [global_group]
 
 LineDrawer="object that draws the lines"
