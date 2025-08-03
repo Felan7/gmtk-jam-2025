@@ -98,6 +98,7 @@ func calculate_intersections(): # Calculates if last drawn line intersects with 
 			temp_hole.append(drawing_line_array[linePoints])
 			
 		var new_hole = Global.holeObject.instantiate()
+		new_hole.add_to_group("HOLE_ENTITY")
 		$"../HOLES".add_child(new_hole)
 		new_hole.create_hole(temp_hole)
 		_clear_lines()
