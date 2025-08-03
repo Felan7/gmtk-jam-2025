@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://coou8b1gt10l2"]
+[gd_scene load_steps=11 format=3 uid="uid://coou8b1gt10l2"]
 
 [ext_resource type="Script" uid="uid://nmylplscpmtv" path="res://scenes/world.gd" id="1_vem1d"]
 [ext_resource type="Script" uid="uid://dkqd5imkwxhne" path="res://scenes/drawer.gd" id="2_ayg7v"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ddcbfvxjqyycb" path="res://scenes/menu/user_interface.tscn" id="3_ayg7v"]
 [ext_resource type="PackedScene" uid="uid://bvbkb8ydj0qph" path="res://scenes/enemies/wave_controller.tscn" id="5_t3haj"]
 [ext_resource type="Texture2D" uid="uid://bqfnv0hmte840" path="res://assets/art/TIleset.png" id="6_ardj1"]
+[ext_resource type="PackedScene" uid="uid://uiqdtt0a352b" path="res://scenes/menu/start_screen.tscn" id="8_njbdt"]
 
 [sub_resource type="Curve" id="Curve_ardj1"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 0.6), 0.0, 0.0, 0, 0, Vector2(0.2, 0.3), 0.0, 0.0, 0, 0, Vector2(0.3, 0.7), 0.0, 0.0, 0, 0, Vector2(0.5, 0.4), 0.0, 0.0, 0, 0, Vector2(0.7, 0.7), 0.0, 0.0, 0, 0, Vector2(0.8, 0.4), 0.0, 0.0, 0, 0, Vector2(0.9, 0.5), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -101,3 +102,5 @@ rotation = 1.5708
 shape = SubResource("WorldBoundaryShape2D_t3haj")
 
 [node name="ENEMY_CONTAINER" type="Node2D" parent="." groups=["enemy_container"]]
+
+[node name="StartScreen" parent="." instance=ExtResource("8_njbdt")]

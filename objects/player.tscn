@@ -258,4 +258,4 @@ metadata/_custom_type_script = "uid://bhmka0jmw0uik"
 sprite_frames = SubResource("SpriteFrames_mqnmn")
 animation = &"moving_side"
 autoplay = "moving_side"
-frame_progress = 0.809471
+frame_progress = 0.449452

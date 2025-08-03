@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://uiqdtt0a352b"]
+
+[ext_resource type="Theme" uid="uid://4fkci148rrkp" path="res://scenes/menu/user_interface_theme.tres" id="1_8ey0m"]
+[ext_resource type="PackedScene" uid="uid://c7nsgh4nklawq" path="res://scenes/menu/controls.tscn" id="2_gtjps"]
+[ext_resource type="Script" uid="uid://dxggd4w6m04nf" path="res://scenes/menu/start_screen.gd" id="2_viyhn"]
+
+[node name="StartScreen" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8ey0m")
+script = ExtResource("2_viyhn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Container_Story" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container_Story"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Container_Story/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+bbcode_enabled = true
+text = "Once upon a time, a fairy travelled to another realm. She \"found\" a reality-cutting butterknife in a witch's kitchen. Now, all of the things in the witch's backyard will be hers! She just has to cut a hole in the fabric of reality using that nifty knife, so all the new trinkets and pets will fall back to her realm. But be careful! Should she fall into a hole herself, the \"borrowing\" spree is over.
+
+[indent]The fairy will drag the knife behind her, cutting as she goes. If the line forms a loop, a hole is created. Use the limited backyard space to collect as many things as possible, without falling or being pushed into a hole"
+fit_content = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Container_Story"]
+layout_mode = 2
+fit_content = true
+
+[node name="Button_Next" type="Button" parent="Container_Story"]
+layout_mode = 2
+text = "Next"
+
+[node name="Container_Controls" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="Container_Controls"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="Container_Controls"]
+layout_mode = 2
+
+[node name="Controls" parent="Container_Controls/CenterContainer" instance=ExtResource("2_gtjps")]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Container_Controls"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button_Start" type="Button" parent="Container_Controls"]
+layout_mode = 2
+text = "Start"
+
+[connection signal="pressed" from="Container_Story/Button_Next" to="." method="_on_button_next_pressed"]
+[connection signal="pressed" from="Container_Controls/Button_Start" to="." method="_on_button_start_pressed"]
