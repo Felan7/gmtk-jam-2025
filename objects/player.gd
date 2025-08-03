@@ -7,12 +7,12 @@ extends CharacterBody2D
 # - Can die
 
 # --- Player variables --- #
-var SPEED : float = 180 # How fast player character moves
+var SPEED : float = 210 # How fast player character moves
 var ACCELERATION : float = 0.4 # How quickly player accelerates
 var DEACCELERATION : float = 0.8 # How quickly player slows down
 
 
-var isDrawing : bool = false # Is player currently drawing a line
+var isDrawing : bool = true # Is player currently drawing a line
 var previous_location : Vector2 = Vector2.ZERO
 var draw_rate : int = 10
 var prev_player_pos : Vector2 = Vector2.ZERO
@@ -87,7 +87,7 @@ func movement_handler(delta): # Handles movement
 	player_perceived_speed = (prev_player_pos - global_position).length()
 	$Label.text = str("SPEED: ", snappedf(player_perceived_speed, 0.1))
 	prev_player_pos = global_position
-
+	"""
 	if Input.is_action_pressed("input_draw_line"):
 		if not isDrawing:
 			get_tree().get_first_node_in_group("LineDrawer")._clear_lines()
@@ -96,8 +96,8 @@ func movement_handler(delta): # Handles movement
 
 	if Input.is_action_just_released("input_draw_line"):
 		isDrawing = false
-
-		#AudioMaster.play_audio("8bit_bossa")
+	"""
+		
 
 	## Maybe make making dots happen on process and drawing/update speed depends on character speed? (faster movement, more frequent updates?)
 

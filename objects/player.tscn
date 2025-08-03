@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b34r3bwe3rwar" path="res://assets/art/butterknife_fairy_down_spritesheet.png" id="6_i825w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ykyjo"]
-radius = 4.0
+radius = 2.0
 
 [sub_resource type="Animation" id="Animation_uxov2"]
 length = 0.001
