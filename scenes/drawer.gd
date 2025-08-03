@@ -1,16 +1,20 @@
 extends Node2D
 # line drawing object - test
-var drawing_line_array : Array[Vector2] = []
+
+var player_object : CharacterBody2D
+
+var drawing_line_array : Array[Vector2] = [] # Last position should be player pos
 var previous_size : int = 0
-var perma_dots : Array[Vector2] = []
 var length : float = 0
 var max_line_length = 520
 var holes : Dictionary  = {}
 
+func _ready() -> void:
+	player_object = get_tree().get_first_node_in_group("Player")
 
 func _physics_process(_delta: float) -> void:
 	$Label.text = str("Line length: ", snappedf(length, 0.1))
-	if drawing_line_array.size() > 0:
+	if drawing_line_array.size() > 0: # If we have any points that form a line, draw it
 		queue_redraw()
 	if length > max_line_length:
 		for deletion in range(floor(length / max_line_length)):
@@ -23,13 +27,13 @@ func _physics_process(_delta: float) -> void:
 
 func _clear_lines():
 	drawing_line_array.clear()
-	perma_dots.clear()
 
 func _draw() -> void:
 	for dot_pos in range(drawing_line_array.size() - 1):
 		draw_line(drawing_line_array[dot_pos], drawing_line_array[dot_pos + 1], Color.RED, 3)
-	for dot_B in range(perma_dots.size() - 1):
-		draw_line(perma_dots[dot_B], perma_dots[dot_B + 1], Color.BLUE, 8)
+	if player_object :
+		if player_object.isDrawing and drawing_line_array.size() > 0:
+			draw_line(drawing_line_array[drawing_line_array.size() - 1], player_object.global_position, Color.RED, 3)
 	
 	
 	for hole_names in holes.keys():

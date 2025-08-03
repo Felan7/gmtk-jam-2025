@@ -75,8 +75,8 @@ func _process(delta: float) -> void:
 			deploy_counter += delta
 		else:
 			deploy_counter = 0
-			point_arr.append(global_position)
-			get_tree().get_first_node_in_group("LineDrawer").drawing_line_array.append(global_position)
+			point_arr.append(global_position) # Debug array // remove later?
+			get_tree().get_first_node_in_group("LineDrawer").drawing_line_array.append(global_position) # Add player position to the line drawn array
 			#queue_redraw()
 	else:
 		point_arr.clear()

@@ -39,4 +39,3 @@ func _on_vison_area_2d_body_exited(body: Node2D) -> void:
 func _on_pounce_area_2d_body_entered(body: Node2D) -> void:
 	player_is_in_reach = true
 	sprite.animation = "pounce"
-dd
