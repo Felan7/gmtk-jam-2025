@@ -6,7 +6,7 @@ var player :CharacterBody2D = null
 var speed = 80
 
 func _physics_process(delta: float) -> void:
-	if player:
+	if player and not is_dying:
 			velocity = position.direction_to(player.position) * speed
 			if player.position.x > position.x:
 				$AnimatedSprite2D.flip_h = false

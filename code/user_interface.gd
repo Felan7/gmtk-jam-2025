@@ -8,6 +8,7 @@ extends Control
 
 func _ready() -> void:
 	Global.connect("score_changed", _on_score_changed)
+	Global.connect("level_changed", _on_level_changed)
 	update_score()
 
 func _on_score_changed():
@@ -20,7 +21,11 @@ func update_score() -> void:
 
 func update_level() -> void:
 	var level = 1
-	var target #todo real value
+	var target = Global.target
 	label_level.text = str(level)
 	label_target.text = str(target)
+	progress_bar.min_value = progress_bar.max_value
 	progress_bar.max_value = target
+
+func _on_level_changed() -> void:
+	update_level()
