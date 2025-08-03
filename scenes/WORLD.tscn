@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://coou8b1gt10l2"]
+[gd_scene load_steps=9 format=3 uid="uid://coou8b1gt10l2"]
 
 [ext_resource type="Script" uid="uid://nmylplscpmtv" path="res://scenes/world.gd" id="1_vem1d"]
 [ext_resource type="Script" uid="uid://dkqd5imkwxhne" path="res://scenes/drawer.gd" id="2_ayg7v"]
@@ -9,7 +9,11 @@
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ayg7v"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t3haj"]
+width = 128
+height = 128
 noise = SubResource("FastNoiseLite_ayg7v")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t3haj"]
 
 [node name="WORLD" type="Node2D"]
 script = ExtResource("1_vem1d")
@@ -44,8 +48,37 @@ self_modulate = Color(1, 1, 1, 0.25098)
 z_index = -99
 offset_left = -1024.0
 offset_top = -1024.0
-offset_right = 1000.0
-offset_bottom = 1000.0
+offset_right = 1024.0
+offset_bottom = 1024.0
 texture = SubResource("NoiseTexture2D_t3haj")
 
 [node name="WaveController" parent="." instance=ExtResource("5_t3haj")]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+position = Vector2(0, 1024)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_t3haj")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Node2D"]
+position = Vector2(0, -1024)
+rotation = 3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_t3haj")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Node2D"]
+position = Vector2(1024, 0)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_t3haj")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Node2D"]
+position = Vector2(-1024, 0)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D4"]
+shape = SubResource("WorldBoundaryShape2D_t3haj")
