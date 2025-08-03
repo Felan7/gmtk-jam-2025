@@ -10,11 +10,16 @@ var score_text_animation_scene : PackedScene = preload("res://scenes/menu/score_
 var enemy_type : String = "" # Enemy type
 
 var is_dying : bool = false
+var isPlayerCloseEnough : bool = false
+var collidedNodes = []
 
 func _ready() -> void:
 	# move out of view
 	position = create_random_position(get_tree().get_first_node_in_group("Player").position, 300)
 
+func _physics_process(delta: float) -> void:
+	if collidedNodes.size() > 0:
+		push_entities()
 
 func create_random_position(player_position : Vector2, player_view_distance) -> Vector2 :
 	var relocation_needed : bool = false
@@ -46,6 +51,7 @@ func create_random_position(player_position : Vector2, player_view_distance) -> 
 
 
 func die() -> void:
+	$Area2D/CollisionShape2D.disabled = true
 	if not $VisibleOnScreenNotifier2D.is_on_screen() and global_position.distance_to(get_tree().get_first_node_in_group("Player").global_position) > 320: # When it dies, if it's not on screen, spawn a new one without death sound or score incrementing
 		get_tree().get_first_node_in_group("wave_controller").spawn_enemy(enemy_type, 1)
 		print("Enemy respawning as got spawn camped at ", global_position)
@@ -78,3 +84,17 @@ func fall_into_hole(target_pos : Vector2):
 	print("target: ", target_pos, " /", global_position)
 	var tween_movement = create_tween()
 	tween_movement.tween_property(self, "global_position", target_pos, 2).set_trans(Tween.TRANS_QUAD)
+
+func push_entities():
+	for node in collidedNodes:
+		node.impulse_effect((node.global_position - global_position).normalized(), 1)
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player") and body.has_method("impulse_effect"):
+		collidedNodes.append(body)
+		
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		collidedNodes.erase(body)

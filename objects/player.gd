@@ -21,6 +21,7 @@ var point_arr = []
 var player_perceived_speed : float = 0 # Player perceived speed
 
 var mouse_control : bool = false
+var impulse_velocity : Vector2 = Vector2.ZERO
 
 @onready var sfx_cutting: AudioStreamPlayer2D = $SfxrStreamPlayer2D
 
@@ -63,7 +64,8 @@ func movement_handler(delta): # Handles movement
 		sprite.animation = "moving_down"
 		sprite.flip_h = false
 		sprite.position.x = 0.0
-
+	
+	velocity += impulse_velocity
 	if input_velocity.length() > 0:
 		velocity = lerp(velocity, input_velocity.normalized() * SPEED * delta, 0.1)
 		if isDrawing:
@@ -73,7 +75,11 @@ func movement_handler(delta): # Handles movement
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, 0.1)
 		sfx_cutting.playing = false
-
+	
+	if impulse_velocity.length() >= 100:
+		impulse_velocity = impulse_velocity / 4
+	elif impulse_velocity.length() < 100:
+		impulse_velocity = Vector2.ZERO
 
 
 	move_and_collide(velocity)
@@ -122,3 +128,7 @@ func _destroy(): # Character dies, might trigger special behaviour
 func die():
 	_destroy()
 	get_parent().game_over()
+
+func impulse_effect(direction : Vector2, strength : float):
+	impulse_velocity += (direction * strength / 2)
+	impulse_velocity.clamp(Vector2(-10, -10), Vector2(10, 10))
