@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dnc4aeodx2qbn"]
+[gd_scene load_steps=7 format=3 uid="uid://dnc4aeodx2qbn"]
 
 [ext_resource type="Theme" uid="uid://4fkci148rrkp" path="res://scenes/menu/user_interface_theme.tres" id="1_7dgi7"]
 [ext_resource type="Script" uid="uid://xh6nvvmo3lyi" path="res://code/splash_screens.gd" id="1_wbuac"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://da12q10upccv" path="res://assets/art/splashscreen_spielwerker.png" id="4_kskso"]
 [ext_resource type="Texture2D" uid="uid://dsryxas0lbqsm" path="res://assets/art/butterknife_fairy_still.png" id="4_v1ql0"]
 [ext_resource type="Texture2D" uid="uid://dkbv8y76uupto" path="res://assets/art/godot_logo_pixelized.png" id="5_506v8"]
-[ext_resource type="PackedScene" uid="uid://c7nsgh4nklawq" path="res://scenes/menu/controls.tscn" id="7_v1ql0"]
 
 [node name="SplashScreens" type="Control"]
 layout_mode = 3
@@ -102,11 +101,12 @@ horizontal_alignment = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="Screens/Screen_AdditionalCredits/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "- The FontStruction “Minimal5x7”
+text = "The FontStruction “Minimal5x7”
   (https://fontstruct.com/fontstructions/show/1158293) by “kheftel” is
   licensed under a Creative Commons Attribution license
   (http://creativecommons.org/licenses/by/3.0/).
-- https://www.reddit.com/r/godot/comments/pqp8v3/8bit_godot_icon/ for pixelized godot logo
+
+https://www.reddit.com/r/godot/comments/pqp8v3/8bit_godot_icon/ for pixelized godot logo
 "
 
 [node name="Screen_Godot" type="CenterContainer" parent="Screens"]
@@ -131,18 +131,6 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("5_506v8")
 expand_mode = 5
-
-[node name="Screen_Controls" type="CenterContainer" parent="Screens"]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Controls" parent="Screens/Screen_Controls" instance=ExtResource("7_v1ql0")]
-layout_mode = 2
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
