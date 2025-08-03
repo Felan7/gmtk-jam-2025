@@ -39,11 +39,26 @@ func _physics_process(delta: float) -> void:
 	queue_redraw()
 
 @onready var particles: CPUParticles2D = $CPUParticles2D
+@onready var sprite: AnimatedSprite2D = $Sprite
+
 
 func movement_handler(delta): # Handles movement
 	var input_velocity : Vector2 = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down"))
 	#print(input_velocity)
 	particles.direction = input_velocity
+
+	if input_velocity.x > 0:
+		sprite.animation = "moving_side"
+		sprite.flip_h = false
+	elif input_velocity.x < 0:
+		sprite.animation = "moving_side"
+		sprite.flip_h = true
+	elif input_velocity.y > 0:
+		sprite.animation = "moving_up"
+		sprite.flip_h = true
+	elif input_velocity.y < 0:
+		sprite.animation = "moving_down"
+		sprite.flip_h = true
 
 	if input_velocity.length() > 0:
 		velocity = lerp(velocity, input_velocity.normalized() * SPEED * delta, 0.1)
