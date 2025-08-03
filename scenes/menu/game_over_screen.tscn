@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://duhugmjoo5mlq"]
+[gd_scene load_steps=4 format=3 uid="uid://duhugmjoo5mlq"]
 
 [ext_resource type="Theme" uid="uid://4fkci148rrkp" path="res://scenes/menu/user_interface_theme.tres" id="1_xsbk6"]
 [ext_resource type="Script" uid="uid://c6ilkvnslfm8x" path="res://code/game_over_screen.gd" id="2_8wk50"]
-[ext_resource type="PackedScene" uid="uid://coou8b1gt10l2" path="res://scenes/WORLD.tscn" id="3_8smoi"]
 [ext_resource type="PackedScene" uid="uid://bn1wocoog5stp" path="res://scenes/menu/main_menu.tscn" id="4_wogbn"]
 
 [node name="GameOverScreen" type="Control"]
@@ -14,7 +13,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_xsbk6")
 script = ExtResource("2_8wk50")
-start_scene = ExtResource("3_8smoi")
 menu_scene = ExtResource("4_wogbn")
 
 [node name="ColorRect" type="ColorRect" parent="."]

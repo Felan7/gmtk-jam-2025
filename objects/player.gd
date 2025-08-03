@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 func movement_handler(delta): # Handles movement
 	var input_velocity : Vector2 = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down"))
 	#print(input_velocity)
-	particles.direction = input_velocity
+	particles.direction = Vector2(input_velocity.x * -1.0, input_velocity.y * -1.0)
 
 	if input_velocity.x > 0:
 		sprite.animation = "moving_side"
