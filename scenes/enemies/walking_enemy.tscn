@@ -64,7 +64,6 @@ script = ExtResource("2_ju45m")
 sprite_frames = SubResource("SpriteFrames_3pso2")
 animation = &"moving"
 autoplay = "idle"
-frame_progress = 0.855008
 
 [node name="VisonArea2D" type="Area2D" parent="." index="2"]
 monitorable = false

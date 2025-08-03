@@ -35,12 +35,13 @@ func _clear_lines():
 	drawing_line_array.clear()
 
 func _draw() -> void:
+	"""
 	for dot_pos in range(drawing_line_array.size() - 1):
 		draw_line(drawing_line_array[dot_pos], drawing_line_array[dot_pos + 1], Color.RED, 3)
 	if player_object :
 		if player_object.isDrawing and drawing_line_array.size() > 0:
 			draw_line(drawing_line_array[drawing_line_array.size() - 1], player_object.global_position, Color.RED, 3)
-	
+	"""
 	""" # Debug hole drawing - first holes
 	for hole_names in holes.keys():
 		var hole_candinate = holes[hole_names]
@@ -113,3 +114,6 @@ func are_lines_intersecting(a : Vector2, b : Vector2, c : Vector2, d : Vector2):
 		
 	return (r >= 0 && r <= 1) && (s >= 0 && s <= 1)
 	
+func check_line_segment_angles():
+	
+	pass

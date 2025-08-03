@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwjs587nti5yp"]
+
+[ext_resource type="Script" uid="uid://bv2ymahs0simp" path="res://objects/spawn_checker.gd" id="1_jxx0t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ndme"]
+radius = 32.0
+
+[node name="SpawnChecker" type="Area2D"]
+collision_layer = 32
+collision_mask = 8
+script = ExtResource("1_jxx0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5ndme")

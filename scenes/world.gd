@@ -5,5 +5,5 @@ extends Node2D
 @onready var player: CharacterBody2D = $Player
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	camera_2d.global_position = player.global_position

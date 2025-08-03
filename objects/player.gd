@@ -8,8 +8,8 @@ extends CharacterBody2D
 
 # --- Player variables --- #
 var SPEED : float = 300 # How fast player character moves
-var ACCELERATION : int = 0.1 # How quickly player accelerates
-var DEACCELERATION : int = 0.5 # How quickly player slows down
+var ACCELERATION : float = 0.1 # How quickly player accelerates
+var DEACCELERATION : float = 0.5 # How quickly player slows down
 
 
 var isDrawing : bool = false # Is player currently drawing a line

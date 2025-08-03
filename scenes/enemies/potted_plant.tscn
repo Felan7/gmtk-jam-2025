@@ -12,9 +12,18 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a0w76")
+}],
+"loop": true,
+"name": &"dying",
+"speed": 5.0
 }]
 
 [node name="PottedPlant" instance=ExtResource("1_tisdf")]
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_0w08w")
+autoplay = "default"
