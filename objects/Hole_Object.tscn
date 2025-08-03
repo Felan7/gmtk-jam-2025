@@ -1,8 +1,14 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=6 format=4 uid="uid://dd364e5dvs8sk"]
 
 [ext_resource type="Script" uid="uid://spt4wfuyhdth" path="res://objects/hole_object.gd" id="1_wnscf"]
 [ext_resource type="Script" uid="uid://bhmka0jmw0uik" path="res://addons/godot_sfxr/SfxrStreamPlayer2D.gd" id="2_gydn3"]
 [ext_resource type="Texture2D" uid="uid://boq12w2hny6fu" path="res://assets/art/HoleTile.png" id="2_gydn3"]
+=======
+[gd_scene load_steps=2 format=3 uid="uid://dd364e5dvs8sk"]
+
+[ext_resource type="Script" uid="uid://spt4wfuyhdth" path="res://objects/hole_object.gd" id="1_wnscf"]
+>>>>>>> Stashed changes
 
 [sub_resource type="Gradient" id="Gradient_wnscf"]
 offsets = PackedFloat32Array(1)
@@ -17,7 +23,7 @@ data = PackedByteArray("Dw8PGR4eHh4eHh4eHh4eHh4eHh0dHR0dHR0dHR0dHR0dHR0dHR0dHR0d
 
 [node name="HoleObject" type="Area2D" groups=["HOLE_ENTITY"]]
 collision_layer = 8
-collision_mask = 22
+collision_mask = 54
 script = ExtResource("1_wnscf")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -25,14 +31,13 @@ script = ExtResource("1_wnscf")
 [node name="Polygon2D" type="Polygon2D" parent="CollisionPolygon2D"]
 z_index = -1
 texture_repeat = 2
-color = Color(0.5, 0.5, 0.5, 1)
-texture = ExtResource("2_gydn3")
+color = Color(0, 0, 0, 1)
 polygon = PackedVector2Array(83, 47, 89, 65, 59, 66, 38, 43, 55, 21, 84, 29, 89, 35)
 
 [node name="Line2D" type="Line2D" parent="CollisionPolygon2D/Polygon2D"]
 points = PackedVector2Array(83, 47, 89, 65, 59, 66, 38, 43, 55, 21, 84, 29, 89, 35)
 closed = true
-width = 2.0
+width = 1.6
 default_color = Color(0.15, 0.075825, 0.0465, 1)
 joint_mode = 2
 begin_cap_mode = 2
