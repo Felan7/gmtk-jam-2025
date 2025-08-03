@@ -18,6 +18,8 @@ animations = [{
 }]
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemies"]]
+collision_layer = 4
+collision_mask = 8
 script = ExtResource("1_w2gdw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
