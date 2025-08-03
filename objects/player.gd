@@ -30,18 +30,27 @@ func _physics_process(delta: float) -> void:
 	if mouse_control:
 		position = get_global_mouse_position()
 
+	particles.emitting = false
 	movement_handler(delta)
 	visual_handler()
 	queue_redraw()
 
+@onready var particles: CPUParticles2D = $CPUParticles2D
 
 func movement_handler(delta): # Handles movement
 	var input_velocity : Vector2 = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down"))
 	#print(input_velocity)
+	particles.direction = input_velocity
+
 	if input_velocity.length() > 0:
 		velocity = lerp(velocity, input_velocity.normalized() * SPEED * delta, 0.1)
+		if isDrawing:
+			particles.emitting = true
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, 0.1)
+
+
+
 	move_and_collide(velocity)
 
 	player_perceived_speed = (prev_player_pos - global_position).length()
