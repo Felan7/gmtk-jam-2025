@@ -42,6 +42,7 @@ audio_sfx=""
 audio=""
 HOLE_ENTITY=""
 enemy_container=""
+wave_controller=""
 
 [input]
 

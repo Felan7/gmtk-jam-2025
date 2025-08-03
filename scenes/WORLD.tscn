@@ -44,7 +44,6 @@ round_precision = 1
 [node name="HOLES" type="Node2D" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.15, 0.15)
 limit_left = -1024
 limit_top = -1024
 limit_right = 1024
@@ -72,7 +71,7 @@ patch_margin_bottom = 16
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
-[node name="WaveController" parent="." instance=ExtResource("5_t3haj")]
+[node name="WaveController" parent="." groups=["wave_controller"] instance=ExtResource("5_t3haj")]
 
 [node name="Node2D" type="Node2D" parent="."]
 
