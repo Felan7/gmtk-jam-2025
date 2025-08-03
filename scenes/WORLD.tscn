@@ -135,7 +135,7 @@ editor_draw_limits = true
 [node name="Player" parent="." instance=ExtResource("2_km3x0")]
 
 [node name="MAP_BG" type="NinePatchRect" parent="."]
-self_modulate = Color(0.8, 0.8, 0.8, 1)
+self_modulate = Color(0.75, 0.75, 0.75, 1)
 z_index = -99
 offset_left = -1024.0
 offset_top = -1024.0
