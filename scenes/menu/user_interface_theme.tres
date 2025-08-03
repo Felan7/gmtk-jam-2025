@@ -1,6 +1,18 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://4fkci148rrkp"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://4fkci148rrkp"]
 
 [ext_resource type="FontFile" uid="uid://dpntb4eu3klq" path="res://assets/fonts/minimal5x7.ttf" id="1_7faip"]
+[ext_resource type="Texture2D" uid="uid://bwv1krugeuyby" path="res://assets/art/SliderGrabber.png" id="1_gosun"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gosun"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0.374139, 0.374139, 0.374139, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7faip"]
 content_margin_left = 2.0
@@ -12,6 +24,20 @@ border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g26a8"]
+bg_color = Color(0.775063, 0.775063, 0.775063, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsd3t"]
+bg_color = Color(0.808998, 0.808998, 0.808998, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ci3fx"]
+bg_color = Color(0.277528, 0.277528, 0.277528, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.299547, 0.299547, 0.299547, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jbsfc"]
 border_width_left = 1
@@ -30,7 +56,15 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 
 [resource]
 default_font = ExtResource("1_7faip")
+Button/styles/hover = SubResource("StyleBoxFlat_gosun")
 Button/styles/normal = SubResource("StyleBoxFlat_7faip")
+Button/styles/pressed = SubResource("StyleBoxFlat_gosun")
+HSlider/icons/grabber = ExtResource("1_gosun")
+HSlider/icons/grabber_disabled = ExtResource("1_gosun")
+HSlider/icons/grabber_highlight = ExtResource("1_gosun")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_g26a8")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_vsd3t")
+HSlider/styles/slider = SubResource("StyleBoxFlat_ci3fx")
 MarginContainer/constants/margin_bottom = 2
 MarginContainer/constants/margin_left = 2
 MarginContainer/constants/margin_right = 2

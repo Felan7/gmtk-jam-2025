@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bn1wocoog5stp"]
+[gd_scene load_steps=6 format=3 uid="uid://bn1wocoog5stp"]
 
 [ext_resource type="Theme" uid="uid://4fkci148rrkp" path="res://scenes/menu/user_interface_theme.tres" id="1_247la"]
 [ext_resource type="Script" uid="uid://48jg32iix0a5" path="res://code/main_menu.gd" id="1_nl8w3"]
 [ext_resource type="Texture2D" uid="uid://bub7reudti20u" path="res://assets/art/icon.svg" id="2_3rkf3"]
 [ext_resource type="PackedScene" uid="uid://bt64ym4yk5cr0" path="res://objects/audio_slider.tscn" id="3_247la"]
+[ext_resource type="PackedScene" uid="uid://coou8b1gt10l2" path="res://scenes/WORLD.tscn" id="3_hj162"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -14,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_247la")
 script = ExtResource("1_nl8w3")
+start_scene = ExtResource("3_hj162")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
