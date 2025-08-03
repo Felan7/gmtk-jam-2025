@@ -29,7 +29,6 @@ offset_right = 44.0
 offset_bottom = 49.0
 
 [node name="Cut_Line" type="Line2D" parent="LineDrawer"]
-points = PackedVector2Array(10, 50, 200, 50, 200, 80, 144, 94, 59, 66)
 width = 6.0
 width_curve = SubResource("Curve_ardj1")
 default_color = Color(0.81, 0.53055, 0.2511, 1)
