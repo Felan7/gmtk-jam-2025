@@ -1,5 +1,5 @@
 extends Node2D
-# line drawing object - test
+# line drawing object
 
 var player_object : CharacterBody2D
 @onready var cut_line: Line2D = $Cut_Line
@@ -11,20 +11,21 @@ var max_line_length = 1024 # What is the max length of the line
 #var holes : Dictionary  = {} # Collection
 
 func _ready() -> void:
-	player_object = get_tree().get_first_node_in_group("Player")
+	player_object = get_tree().get_first_node_in_group("Player") # Fetch player object. NOTE: We should check player exists or otherwise might error (forgor)
 
 func _physics_process(_delta: float) -> void:
 	$Label.text = str("Line length: ", snappedf(length, 0.1)) # DEBUG LINE
 	update_drawn_line()
 
-	if length > max_line_length: # Line max length logic
+	if length > max_line_length: # Line max length logic / If current line is longer than max allowed
 		for deletion in range(floor(length / max_line_length)):
 			drawing_line_array.pop_front() # Remove point from front of the array (oldest point)
 
 	if previous_size != drawing_line_array.size(): # If there was a change in position count, check if it intersects
-		if check_line_segment_angles() < 0.99:
+		if check_line_segment_angles() < 0.99: # If line segments do not align similarly, calculate intersections
+			# Bug: if all lines are aligned same, it may cause problems with the loop intersecting
 			calculate_intersections()
-	previous_size = drawing_line_array.size()
+	previous_size = drawing_line_array.size() 
 	calculate_length()
 
 func update_drawn_line():
@@ -33,7 +34,7 @@ func update_drawn_line():
 func _clear_lines():
 	drawing_line_array.clear()
 
-func _draw() -> void:
+func _draw() -> void: # DEBUG STUFF
 	"""
 	for dot_pos in range(drawing_line_array.size() - 1):
 		draw_line(drawing_line_array[dot_pos], drawing_line_array[dot_pos + 1], Color.RED, 3)
@@ -56,11 +57,12 @@ func calculate_length(): # Calculates the length of the line from array position
 
 func calculate_intersections(): # Calculates if last drawn line intersects with any previous line
 	# We want to compare last line with previous lines
-	# - No point comparing neighbour lines as neighbours cannot intersect
+	# - No point comparing neighbour lines as neighbours cannot intersect. Only neighbour "pairs" can intersect
 	# - if finds an intersection -> SAVE "newest" point pair (remember starter point)
 	# 	= AND pick the other intersecting point, SAVE "last one".
 	# - DELETE ALL POINTS BEFORE LAST ONE and AFTER "newest"
 	# Add newly found "circle dots" into different array that contains holes
+	# "Basically we want to check if the most recent line intersects with ANY previous line segment
 
 	var isIntersecting : bool = false
 	var circle_start_pos : int = 0
@@ -73,18 +75,18 @@ func calculate_intersections(): # Calculates if last drawn line intersects with 
 		var p1 = positions[i]
 		var p2 = positions[i + 1] # Point pair A
 
-		for j in range(clampi(positions.size() - 2, 0, positions.size()), positions.size() - 1):
+		for j in range(clampi(positions.size() - 2, 0, positions.size()), positions.size() - 1): # Fetch the newest 2 points
 			# pair B
 			var p3 = positions[j]
 			var p4 = positions[j + 1] # Point pair B
 
-			if (p3 != p2 and p3 != p1):
+			if (p3 != p2 and p3 != p1): # Check the pair A and B don't share same positions, otherwise will not work
 				if are_lines_intersecting(p1, p2, p3, p4):
 					isIntersecting = true
 					circle_start_pos = i + 1
 					circle_end_pos = j
 					break
-		if break_out:
+		if break_out: # OLD // Old break out flag
 			break
 
 	if isIntersecting:
@@ -96,13 +98,14 @@ func calculate_intersections(): # Calculates if last drawn line intersects with 
 		for linePoints in range(circle_start_pos + 1, circle_end_pos): # Adds remaining points all the way to the newest point
 			temp_hole.append(drawing_line_array[linePoints])
 
+		# Create new hole object with the data
 		var new_hole = Global.holeObject.instantiate()
 		new_hole.add_to_group("HOLE_ENTITY")
 		$"../HOLES".add_child(new_hole)
 		new_hole.create_hole(temp_hole)
 		_clear_lines()
 
-func are_lines_intersecting(a : Vector2, b : Vector2, c : Vector2, d : Vector2):
+func are_lines_intersecting(a : Vector2, b : Vector2, c : Vector2, d : Vector2): # Logic for calculating if 2 vector lines intersect
 	var denominator : float = ((b.x - a.x) * (d.y - c.y)) - ((b.y - a.y) * (d.x - c.x))
 	var numerator1 : float = ((a.y - c.y) * (d.x - c.x)) - ((a.x - c.x) * (d.y - c.y))
 	var numerator2 : float = ((a.y - c.y) * (b.x - a.x)) - ((a.x - c.x) * (b.y - a.y))
